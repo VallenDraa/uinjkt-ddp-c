@@ -3,7 +3,7 @@
 #include <stdlib.h> // pustaka standard lib c/c++    
 #include <math.h>   // pustaka proses aritmarika
 #include <string.h> // pustaka proses olah string
-#include <conio.h>  // pustaka untuk proses tamabahan olah string
+#include <conio.h>  // pustaka untuk proses tambahan olah string
 
 // Deklarasi Variabel 
 int menu;       // Variabel untuk melakukan proses pemilihan menu
