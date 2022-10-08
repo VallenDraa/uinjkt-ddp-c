@@ -1,4 +1,4 @@
-/* Program ini akan mencetak sebuah 5 tingkatan awal dari sebuah segitiga paskal */
+/* Program ini akan mencetak 5 tingkatan awal dari sebuah segitiga paskal */
 
 // DEKLARASI PUSTAKA
 #include <stdio.h>
