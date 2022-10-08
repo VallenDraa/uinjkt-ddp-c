@@ -16,10 +16,6 @@ int main() {
     scanf("%f", &angka[i]);
   }
 
-  for (int i = 0; i < 5; i++) {
-    printf("%f ", angka[i]);
-  }
-
   // Menghitung rata-rata
   for (int i = 0; i <= 5; i++) {
     hasil = (i == 5) ? (hasil / 5) : (hasil + angka[i]);

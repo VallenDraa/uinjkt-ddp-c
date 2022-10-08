@@ -8,22 +8,18 @@
 
 // DEKLARASI ALGORTIMA
 int main() {
-
   // DEKLARASI VARIABLE
   int angka;
 
   // 1
   for (int i = 0; i < BARIS; i++) { 
-    
     // 2
     for (int j = 0; j < BARIS - i; j++) printf(" "); 
-    
     // 3
     for (int k = 0; k <= i; k++) { 
       angka = (k == 0 || k == i) ? 1 : (angka * (i - k + 1) / k);
       printf("%i ", angka);
     }
-
     printf("\n");
   }
 

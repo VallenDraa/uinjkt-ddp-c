@@ -1,3 +1,7 @@
+/*
+  Program ini akan mencetak bentuk setengah diamond dengan jumlah tingkatan sesuai dengan masukan user
+*/
+
 #include <stdio.h>
 
 int main() {
@@ -6,20 +10,15 @@ int main() {
   printf("masukkan jumlah: ");
   scanf("%i", &jumlah);
 
-  // loop 1 untuk membuat sumbu Y
+  // Loop 1 untuk mencetak bagian atas
   for (int i = 0; i < jumlah; i++) {
-    // loop 1 untuk membuat sumbu X
     for (int j = i; j >= 1; j--) printf("*");
-    
-
     printf("\n");
   }
-  // loop 1 untuk membuat sumbu Y
+  
+  // Loop 1 untuk mencetak bagian bawah
   for (int i = jumlah; i >= 1; i--) {
-    // loop 1 untuk membuat sumbu X
     for (int j = 0; j < i; j++) printf("*");
-    
-
     printf("\n");
   }
 
