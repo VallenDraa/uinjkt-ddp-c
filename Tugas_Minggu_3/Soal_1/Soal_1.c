@@ -36,9 +36,9 @@ double operasiLingkaran(Lingkaran L, char opsiOperasi) {
     : 2 * M_PI * L.jariJari;  
 }
 double operasiTrapesium(Trapesium T, char opsiOperasi) {
-    return opsiOperasi == 'l' 
-      ? ((T.sisiPendek + T.sisiPanjang) * T.tinggi) / 2 
-      : T.sisiPendek + T.sisiPanjang + T.sisiKanan + T.sisiKiri;  
+  return opsiOperasi == 'l' 
+    ? ((T.sisiPendek + T.sisiPanjang) * T.tinggi) / 2 
+    : T.sisiPendek + T.sisiPanjang + T.sisiKanan + T.sisiKiri;  
 } 
 double operasiPersegi(Persegi P, char opsiOperasi) {
   printf("%c", opsiOperasi);
