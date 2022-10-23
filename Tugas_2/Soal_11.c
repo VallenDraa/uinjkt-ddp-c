@@ -26,6 +26,7 @@ int main() {
     for (int i = 0 ; i < sizeof(hari_2) / sizeof(hari_1[0]); i++) {
       hari_1[i] = tolower(hari_1[i]);  
     }
+
     for (int i = 0; i < 7; i++) {
       if (strcmp(HARI[i], hari_1) == 0) {
         day_idx_1 = i;
@@ -42,6 +43,7 @@ int main() {
     for (int i = 0 ; i < sizeof(hari_2) / sizeof(hari_2[0]); i++) {
       hari_2[i] = tolower(hari_2[i]);  
     }
+
     for (int i = 0; i < 7; i++) {
       if (strcmp(HARI[i], hari_2) == 0) {
         day_idx_2 = i;
@@ -49,15 +51,16 @@ int main() {
       } else { 
         day_idx_2 = -1; 
       }
-  }
+    }
   }
 
   // menghitung perbedaan hari 
   if (day_idx_1 == day_idx_2) {
     perbedaan = 7;
   } else {
-    perbedaan = day_idx_1 > day_idx_2 ? abs(day_idx_1 - (7 + day_idx_2)) 
-                                      : day_idx_2 - day_idx_1;
+    perbedaan = day_idx_1 > day_idx_2 
+      ? abs(day_idx_1 - (7 + day_idx_2)) 
+      : day_idx_2 - day_idx_1;
   }
 
   // Menampilkan perbedaan durasi hari

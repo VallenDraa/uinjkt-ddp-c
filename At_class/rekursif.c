@@ -5,6 +5,6 @@ long long factorial(int x) {
 }
 
 int main () {
-	printf("%i", factorial(10));
+	printf("%i", factorial(5));
 	return 0;
 }
