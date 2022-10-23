@@ -1,18 +1,26 @@
+// program ini berisikan prosedur untuk menghitung jumlah N buah bilangan genap pertama 
 #include <stdio.h>
 
+// deklrasi variable
+int jumlah, hasil = 0;
 
-
-int c;
-
-void test(int *a, int *b) {
-  printf("%i", a);
-}
+// mencetak N buah bilangan genap pertama
+void n_buah_genap_pertama(int jumlah, int *hasil);
 
 int main() {
-  int a = 1;
-  int b = 2;
+  // Meminta masukan dari user
+  printf("Masukkan jumlah bilangan genap pertama: ");
+  scanf("%i", &jumlah);
 
-  test(&a, &b);
-
+  // memanggil prosedur
+  n_buah_genap_pertama(jumlah, &hasil);
   return 0;
+}
+
+// Definisi Prosedur 
+void n_buah_genap_pertama(int jumlah, int *hasil) {
+  for (int i = 0; i < jumlah ; i++) {
+    printf("%i ", *hasil);
+    *hasil += 2;
+  }
 }
