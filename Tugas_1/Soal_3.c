@@ -10,9 +10,9 @@ int main() {
   // meminta masukan kepada user
   printf("\nMasukkan nilai x: ");
   scanf("%i", &x);
-  printf("\nMasukkan nilai x: ");
+  printf("\nMasukkan nilai y: ");
   scanf("%i", &y);
-  printf("\nMasukkan nilai x: ");
+  printf("\nMasukkan nilai z: ");
   scanf("%i", &z);
 
   // proses penukaran

@@ -10,7 +10,8 @@ int a, b, KPK = 0;
 void kpk(int a, int b, int *KPK);
 
 // DEKLARASI ALGORTIMA
-int main() {
+int main()
+{
   // meminta masukan kepada user
   printf("Masukkan bilangan bulat pertama: ");
   scanf("%i", &a);
@@ -24,20 +25,26 @@ int main() {
 }
 
 // definisi prosedur
-void kpk(int a, int b, int *KPK) {
+void kpk(int a, int b, int *KPK)
+{
   // Hanya akan memiliki kpk jika bilangan a dan b bukan 0
-  if (a != 0 && b != 0) {
-    int nilai_tertinggi = a > b  ? a : b;
+  if (a != 0 && b != 0)
+  {
+    int nilai_tertinggi = a > b ? a : b;
 
-    for (int i = nilai_tertinggi; i < a * b; i++) {
-      if (i % a == 0 && i % b == 0) {
+    for (int i = nilai_tertinggi; i < a * b; i++)
+    {
+      if (i % a == 0 && i % b == 0)
+      {
         *KPK = i;
         break;
       }
     }
-  } else {
+  }
+  else
+  {
     *KPK = 0;
   }
 
-  printf("Hasil KPK dari bilangan %i dan %i adalah %i", a, b, *KPK);          
+  printf("Hasil KPK dari bilangan %i dan %i adalah %i", a, b, *KPK);
 }

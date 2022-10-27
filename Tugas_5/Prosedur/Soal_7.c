@@ -6,7 +6,7 @@
 #include <stdbool.h>
 
 // deklarasi konstanta
-const char NAMA_HARI[7][10] = { "senin", "selasa", "rabu", "kamis", "jumat", "sabtu", "minggu" };
+const char NAMA_HARI[7][10] = {"senin", "selasa", "rabu", "kamis", "jumat", "sabtu", "minggu"};
 
 // deklarasi variable
 int i, input_hari_len;
@@ -17,16 +17,19 @@ bool is_hari_valid = false;
 void hari_esok(char input_hari[10], bool *is_hari_valid);
 
 // deklarasi algoritma
-int main() {
+int main()
+{
   // meminta masukan hari dari user
-  while (!is_hari_valid) {
+  while (!is_hari_valid)
+  {
     printf("\nMasukkan nama hari: ");
     fflush(stdin);
     gets(input_hari);
     input_hari_len = sizeof(input_hari) / sizeof(input_hari[0]);
 
     // mengkonversi input menjadi lowercase
-    for (i = 0; i < input_hari_len - 1; i++) {
+    for (i = 0; i < input_hari_len - 1; i++)
+    {
       input_hari[i] = tolower(input_hari[i]);
     }
 
@@ -36,21 +39,26 @@ int main() {
   return 0;
 }
 
-void hari_esok(char input_hari[10], bool *is_hari_valid) { 
-  
+void hari_esok(char input_hari[10], bool *is_hari_valid)
+{
   // jika hari minggu maka kembalikan senin
-  if (strcmp(input_hari, "minggu") == 0) {
+  if (strcmp(input_hari, "minggu") == 0)
+  {
     printf("\nHari setelah %s adalah %s", input_hari, NAMA_HARI[0]);
-    *is_hari_valid = true; 
-  } else {
+    *is_hari_valid = true;
+  }
+  else
+  {
     // loop untuk mencari hari yang sama dengan input
-    for (int i = 0; i < 6; i++){
+    for (int i = 0; i < 6; i++)
+    {
       // proses validasi hari
-      if (strcmp(input_hari, NAMA_HARI[i]) == 0) {
+      if (strcmp(input_hari, NAMA_HARI[i]) == 0)
+      {
         printf("\nHari setelah %s adalah %s", input_hari, NAMA_HARI[i + 1]);
-        *is_hari_valid = true; 
+        *is_hari_valid = true;
         break;
-      } 
+      }
     }
   }
 }

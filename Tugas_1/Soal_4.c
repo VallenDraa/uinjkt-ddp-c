@@ -4,13 +4,7 @@
 // deklarasi variable
 const int PECAHAN[5] = { 1000, 500, 100, 50, 25 }; 
 long long input_uang;
-enum Pecahan {
-  seribu,
-  lima_ratus,
-  seratus,
-  lima_puluh,
-  dua_lima,
-};
+enum Pecahan { seribu, lima_ratus, seratus, lima_puluh, dua_lima };
 int res[] = { 0, 0, 0, 0, 0 }; 
 int i;
 

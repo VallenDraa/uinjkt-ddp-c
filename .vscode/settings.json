@@ -5,6 +5,7 @@
     "stdlib.h": "c",
     "stdio.h": "c",
     "stdbool.h": "c",
-    "penghitung_beda_hari.h": "c"
+    "penghitung_beda_hari.h": "c",
+    "string.h": "c"
   }
 }

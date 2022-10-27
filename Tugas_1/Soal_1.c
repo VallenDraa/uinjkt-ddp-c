@@ -17,10 +17,10 @@ int main() {
 
   // menampilkan hasil konversi
   printf("\nHasil Konversi: \n");
-  printf("Detik - %.4f\n", detik);
-  printf("Menit - %.4f\n", menit);
-  printf("Jam - %.4f\n", jam);
-  printf("Hari - %.4f\n", hari);
+  printf("Detik - %.2f\n", detik);
+  printf("Menit - %.2f\n", menit);
+  printf("Jam - %.2f\n", jam);
+  printf("Hari - %.2f\n", hari);
 
   return 0;
 }

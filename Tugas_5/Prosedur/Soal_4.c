@@ -1,4 +1,4 @@
-// program ini berisikan prosedur untuk menghitung iuran pada bank 
+// program ini berisikan prosedur untuk menghitung iuran pada bank
 #include <stdio.h>
 #include <math.h>
 
@@ -9,12 +9,14 @@ int jumlah_tahun_menabung;
 // deklarasi prosedur
 void hitung_iuran(float *iuran, float saldo, float bunga, int jumlah_tahun_menabung);
 
-int main() {
+int main()
+{
   // Meminta masukan dari user
   printf("Masukkan saldo anda: ");
   scanf("%f", &saldo);
   printf("Masukkan besar bunga bank dalam persen: ");
-  scanf("%f", &bunga); bunga = bunga / 100;
+  scanf("%f", &bunga);
+  bunga = bunga / 100;
   printf("Masukkan lamanya anda menabung dalam tahun: ");
   scanf("%i", &jumlah_tahun_menabung);
 
@@ -23,13 +25,15 @@ int main() {
   return 0;
 }
 
-// Definisi Prosedur 
-void hitung_iuran(float *iuran, float saldo, float bunga, int jumlah_tahun_menabung) {
+// Definisi Prosedur
+void hitung_iuran(float *iuran, float saldo, float bunga, int jumlah_tahun_menabung)
+{
   // deklarasi variabel
   float iuran_multiplier = 0;
-  
+
   // menghitung multiplier iuran
-  for (int i = 0; i < jumlah_tahun_menabung; i++) {
+  for (int i = 0; i < jumlah_tahun_menabung; i++)
+  {
     iuran_multiplier = iuran_multiplier + pow((1 + bunga), i);
   }
 
