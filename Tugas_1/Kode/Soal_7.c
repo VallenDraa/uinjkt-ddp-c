@@ -6,15 +6,16 @@
 float input_tinggi, bb_ideal;
 
 // deklarasi algoritma
-int main() {
+int main()
+{
   // meminta masukan kepada user
   printf("\nMasukkan tinggi badan anda: ");
   scanf("%f", &input_tinggi);
 
   // proses perhitungan berat ideal
-  bb_ideal = abs((input_tinggi - 100) - (input_tinggi - 100) * 0.1); 
+  bb_ideal = abs((input_tinggi - 100) - (input_tinggi - 100) * 0.1);
 
   // menampilkan hasil konversi
-  printf("\nBerat badan ideal untuk tinggi %.2f kg adalah %.2f kg", input_tinggi, bb_ideal);
+  printf("\nBerat badan ideal untuk tinggi %.2f cm adalah %.2f kg", input_tinggi, bb_ideal);
   return 0;
 }

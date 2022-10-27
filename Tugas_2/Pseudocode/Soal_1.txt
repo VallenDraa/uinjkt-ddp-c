@@ -1,0 +1,17 @@
+/*
+  Program ini menerima 1 bilangan bulat sebagai input 
+  dan akan menentukan apakah bilangan tersebut termasuk kelipatan 4  
+*/ 
+
+// DEKLARASI VARIABLE
+var bilangan: int
+
+// DEKLARASI ALGORITMA
+// meminta user untuk menginput sebuah bilangan bulat 
+while bilangan <= 0 do
+  bilangan <- read("Masukkan sebuah bilangan bulat: ")
+end while
+
+// melakukan pengecekan modulus 4
+bilangan % 4 == 0 ? write("Angka %i adalah bilangan kelipatan 4", bilangan)
+                  : write("Angka %i bukan bilangan kelipatan 4", bilangan)

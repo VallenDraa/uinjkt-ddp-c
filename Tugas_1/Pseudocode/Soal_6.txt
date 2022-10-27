@@ -1,0 +1,31 @@
+// Program ini akan mengkonversi meter ke dalam satuan inchi, kaki, dan yard
+
+// deklarasi konstanta (dalam meter)
+const var SATU_INCHI: float <- 25.4 / 1000
+const var SATU_KAKI: float <- 30.48 / 100
+const var SATU_YARD: float <- 0.9144
+
+// deklarasi variable
+var input_m: float
+structure Hasil {
+  float inchi
+  float kaki
+  float yard
+}
+var res: Hasil
+
+// deklarasi algoritma
+
+// meminta masukan kepada user
+input_m <- read("Masukkan nilai panjang dalam satuan meter: ")
+
+// proses konversi
+res.inchi <- input_m / SATU_INCHI
+res.kaki <- input_m / SATU_KAKI
+res.yard <- input_m / SATU_YARD
+
+// menampilkan hasil konversi
+write("Hasil Konversi %.2f:", input_m)
+write("%.2f inchi", res.inchi)
+write("%.2f kaki", res.kaki)
+write("%.2f yard", res.yard)

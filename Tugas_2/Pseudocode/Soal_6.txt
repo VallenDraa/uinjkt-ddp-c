@@ -1,0 +1,17 @@
+/* Program ini akan membulatkan angka ke bentuk pecahan terendah */ 
+
+// DEKLARASI VARIABLE 
+var (angka, nominal_pengurangan, hasil): int;
+
+// DEKLARASI ALGORITMA
+// meminta masukkan kepada user
+angka <- read("Masukkan angka: ");
+
+// membulatkan nominal sesuai pecahan terkecil yang ada yaitu 25 
+nominal_pengurangan <- angka % 25;
+if nominal_pengurangan != 0 do
+   hasil <- angka - nominal_pengurangan;
+end if
+
+// menulis nominal akhir setelah pembulatan
+while("Nominal Akhir: %i", hasil);

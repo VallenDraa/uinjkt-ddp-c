@@ -1,0 +1,32 @@
+/* Program ini akan mengkonversi input integer 0-9 ke bentuk angka romawi */ 
+
+
+// DEKLARASI VARIABLE
+var angka: int 
+
+// DEKLARASI ALGORITMA
+
+  // meminta user untuk menginput angka 0-9
+  do 
+    angka <- read("\nMasukkan angka antara 0-9: ")
+  while angka < 0 || angka > 9
+  
+  // melakukan pencetakan angka
+  write("Angka Romawi dari %i adalah: ", angka)  
+  while angka > 0 do
+    if angka < 4 do
+      write("I")
+      angka--
+    else if angka == 4 do
+      write("IV")
+      angka -= 4
+    else if (angka >= 5 && angka <= 8 do
+      write("V")
+      angka -= 5
+    else 
+      write("IX")
+      angka -= 9
+    end if
+  end while
+
+return adalah

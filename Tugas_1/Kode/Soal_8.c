@@ -9,8 +9,10 @@ char ulang[6] = "ya";
 int year = 0, i;
 
 // deklarasi algoritma
-int main() {
-  while (strcmp(ulang, "ya") == 0) {
+int main()
+{
+  while (strcmp(ulang, "ya") == 0)
+  {
     // meminta masukan kepada user
     printf("Masukkan data untuk tahun %i\n", year + 2022);
     printf("Masukkan jumlah imigrasi: ");
@@ -27,7 +29,8 @@ int main() {
     year += 1;
 
     // menanyakan kepada user apakah ingin mengulang program
-    do {
+    do
+    {
       printf("\nApakah anda ingin melakukan input data untuk tahun %i ?", year + 2022);
       printf("\nInput anda [ya/tidak]: ");
       fflush(stdin);
@@ -35,10 +38,12 @@ int main() {
     } while (strcmp(ulang, "ya") != 0 && strcmp(ulang, "tidak") != 0);
   }
 
+  // mencetak hasil data penduduk
   printf("Tabel data penduduk per tahun: \n");
-  for (i = 0; i < year; i++) {
+  for (i = 0; i < year; i++)
+  {
     printf("%i. %i - %lli\n", i + 1, i + 2022, db[i]);
   }
-  
+
   return 0;
 }

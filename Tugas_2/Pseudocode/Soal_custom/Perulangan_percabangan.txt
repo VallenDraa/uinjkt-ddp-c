@@ -1,0 +1,80 @@
+/* Program ini akan menghitung nilai akhir dan huruf mutu siswa/siswi SMK TRIGUNA UTAMA */ 
+
+// DEKLARASI STRUCT
+structure Siswa{
+  char NIS[10]
+  int is_NIS_valid
+  float formatif, UTS, UAS, nilai_akhir
+  char huruf_mutu
+} 
+
+// DEKLARASI VARIABLE
+var is_ulang: int <- 1
+var siswa: Siswa 
+
+// DEKLARASI FUNGSI
+fn input_nilai(nilai: float, tipe_nilai: char[]): void do
+  do 
+    nilai <- read("Masukkan Nilai %s: ", tipe_nilai)
+  while (nilai < 0 || nilai > 100)
+end fn
+
+// mengecek apakah semua digit NIS berupa angka
+fn validasi_NIS(NIS: char [10]): int {
+
+  for i to 10 do
+    if !temp do break end if
+    if NIS[i] < 48 || NIS[i] > 57 do temp <- 0 end if
+  end for
+
+  return temp
+end fn
+
+// DEKLARASI ALGORITMA
+// meminta input data siswa dari user dan akan di loop selama user masih ingin menginput data
+while is_ulang do
+  do 
+    siswa.NIS <- read("Masukkan NIS (10 DIGIT): ")
+
+    siswa.is_NIS_valid <- strlen(siswa.NIS) != 10 ? 0 : validasi_NIS(siswa.NIS)
+  while (!siswa.is_NIS_valid)
+
+  input_nilai(siswa.formatif, "Formatif")  
+  input_nilai(siswa.UTS, "UTS")  
+  input_nilai(siswa.UAS, "UAS")  
+
+  // Penentuan nilai akhir
+  siswa.nilai_akhir <- (siswa.formatif * 0.4) + (siswa.UTS * 0.3) + (siswa.UAS * 0.3)
+
+  // Penentuan huruf mutu 
+  if siswa.nilai_akhir >= 80 do
+    siswa.huruf_mutu <- 'A'
+  else if siswa.nilai_akhir >= 70 do
+    siswa.huruf_mutu <- 'B'
+  else if siswa.nilai_akhir >= 60 do
+    siswa.huruf_mutu <- 'C'
+  else if siswa.nilai_akhir >= 50 do
+    siswa.huruf_mutu <- 'D'
+  else if siswa.nilai_akhir >= 40){
+    siswa.huruf_mutu <- 'E'
+  else do
+    siswa.huruf_mutu <- 'F'
+  end if
+
+  // Mencetak hasil akhir data siswa
+  write("DATA SISWA")
+  write("NIS\t\t: %s", siswa.NIS)
+  write("Formatif\t: %.2f", siswa.formatif)
+  write("UTS\t\t: %.2f", siswa.UTS)
+  write("UAS\t\t: %.2f", siswa.UAS)
+  write("Nilai Akhir\t: %.2f", siswa.nilai_akhir)
+  write("Huruf Mutu\t: %c", siswa.huruf_mutu)
+
+  // memberi pilihan kepada user untuk mengulang program
+  do
+    write("Apakah anda ingin memasukkan data siswa lagi [1/0]: ")
+    scanf("%i", is_ulang)
+  while is_ulang != 1 && is_ulang != 0
+end while
+
+write("Terima kasih telah menggunakan program ini !")

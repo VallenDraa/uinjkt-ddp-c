@@ -1,0 +1,33 @@
+// Program ini akan mengkonversi meter ke dalam satuan inchi, kaki, dan yard
+
+// DEKLARASI VARIABLE
+var imigrasi, emigrasi, kelahiran, kematian, db[100]: long long
+var ulang[6]: char <- "ya"
+var year: int <- 0, i
+
+// deklarasi algoritma
+while ulang == "ya" do
+  // meminta masukan kepada user
+  write("Masukkan data untuk tahun %i\n", year + 2022)
+  imigrasi <- read("Masukkan jumlah imigrasi: ")
+  emigrasi <- read("Masukkan jumlah emigrasi: ")
+  kelahiran <- read("Masukkan jumlah kelahiran: ")
+  kematian <- read("Masukkan jumlah kematian: ")
+
+  // menghitung total penduduk dan memasukkan total penduduk ke database
+  db[year] <- imigrasi + emigrasi + kelahiran + kematian
+  year += 1
+
+  // menanyakan kepada user apakah ingin mengulang program
+  do 
+    write("\nApakah anda ingin melakukan input data untuk tahun %i ?", year + 2022)
+    ulang <- read("\nInput anda [ya/tidak]: ")
+  while (ulang != "ya" && ulang != "tidak")
+
+end while
+
+// mencetak hasil data penduduk
+write("Tabel data penduduk per tahun: \n")
+for i to year do
+  write("%i. %i - %lli\n", i + 1, i + 2022, db[i])
+end for

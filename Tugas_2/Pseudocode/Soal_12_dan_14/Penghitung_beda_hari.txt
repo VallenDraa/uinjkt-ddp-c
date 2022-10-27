@@ -1,0 +1,70 @@
+// File berisi utility function yang akan digunakan di soal no 12 dan 14 
+// DEKLARASI GLOBAL CONST
+
+// Array berisi hari dalam bulan yang berurutan
+const HARI_BULAN[]: int <- [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ]
+
+// DEKLARASI FUNGSI 
+fn cek_tahun_kabisat(tahun: int): int do
+  return (tahun % 4 == 0) && ((tahun % 400 == 0) || (tahun % 100 != 0))  
+end fn
+
+fn hitung_perbedaan_hari (start: Date, end: Date): int do
+  // placeholder untuk pengembalian
+  var perbedaan_hari <- 0: int 
+  var perbedaan_bulan <- 0: int
+  var perbedaan_tahun <- end.tahun - start.tahun: int
+  var month_counter <- start.bulan: int
+  var year_counter <- start.tahun: int
+
+  // menentukan perbedaan bulan
+  if end.bulan == start.bulan do
+    perbedaan_bulan <- perbedaan_tahun != 0 ? (12 + (12  perbedaan_tahun)): 0
+  else if end.bulan > start.bulan do
+    perbedaan_bulan <- (end.bulan - start.bulan) + (perbedaan_tahun != 0 ? (12  perbedaan_tahun) : 0) 
+  else do 
+    perbedaan_bulan <- (end.bulan - start.bulan) + (perbedaan_tahun != 0 ? (12  perbedaan_tahun) : 12)
+  end if
+
+  // melakukan perulangan sebanyak 'perbedaan_bulan' dan menambahkan jumlah hari
+  // sesuai nilai elemen array 'HARI_BULAN' pada index 'month_counter'
+  if (perbedaan_bulan != 0) do
+    for i = 0 to perbedaan_bulan do
+
+      // pengecekan tahun kabisat
+      perbedaan_hari += month_counter != 2 
+        ? HARI_BULAN[month_counter - 1] 
+        : cek_tahun_kabisat(year_counter) ? 29 : 28
+
+      // me-reset 'month_counter' jika sudah melebihi jumlah bulan yang ada
+      // dan juga menambah 'year_counter'
+      month_counter++
+      if month_counter > 12 do
+        month_counter = 1
+        year_counter++
+      end if
+    end for
+  end if
+
+  // pengembalian hasil perhitungan perbedaan hari
+  if end.hari == start.hari do 
+    return perbedaan_hari
+  else do
+    return perbedaan_hari + (end.hari > start.hari ? (end.hari - start.hari) : - (start.hari - end.hari))
+  end if
+end fn
+
+// DEKLARASI PROSEDUR
+fn menu_input_tanggal(hari: int, bulan: int, tahun: int): void do
+  do 
+    printf("Masukkan bulan: ")
+    scanf("%i", bulan)
+  while bulan <= 0 or bulan > 12
+
+  do 
+    printf("Masukkan tanggal: ")
+    scanf("%i", hari)
+  while hari <= 0 or hari > HARI_BULAN[bulan - 1]
+  
+  tahun <- read("Masukkan tahun: ")
+end fn

@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <conio.h>
 
 // deklarasi variable
 typedef struct
@@ -44,9 +45,9 @@ int main()
 
     // mengecek input menu user
     if (input_menu == 1)
-      nim_gt_dua(list_mhs);
+      nim_gt_dua();
     else if (input_menu == 2)
-      nim_highest_lowest(list_mhs);
+      nim_highest_lowest();
     else if (input_menu == 3)
       break;
     else

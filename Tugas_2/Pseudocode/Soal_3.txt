@@ -1,0 +1,36 @@
+/*
+  Program ini menerima 3 bilangan bulat sebagai input 
+  dan akan mengeluarkan 3 angka tersebut secara berurutan 
+*/ 
+
+// DEKLARASI KONSTANTA
+const var PANJANG_ARRAY: int <- 3 //karena input sudah dipastikan ada 3
+
+// DEKLARASI VARIABLE
+var angka: int[3]
+var temp: int // wadah untuk pertukaran nilai di bubble sort
+
+
+// DEKLARASI ALGORITMA
+// meminta user untuk menginput 3 bilangan bulat
+write("Masukkan 3 bilangan bulat !\n")
+for i to PANJANG_ARRAY do 
+  angka[i] <- read("Masukkan angka ke - %i: ", i + 1)
+end for
+
+// Melakukan bubble sort untuk mengurutkan angka
+for i = 0 to PANJANG_ARRAY do
+  for j = 0 to PANJANG_ARRAY do
+    if angka[j] > angka[j + 1] do
+      temp <- angka[j + 1]
+      angka[j + 1] <- angka[j]
+      angka[j] <- temp
+    end if
+  end for
+end for
+
+// Menampilkan angka yang terutut
+write("Angka yang terutut\n")
+for i = 0 to PANJANG_ARRAY do
+  write("%i ", angka[i])
+end for

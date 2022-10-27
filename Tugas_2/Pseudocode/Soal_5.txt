@@ -1,0 +1,15 @@
+/* Program ini akan mengkonversi angka 0-9 berbentuk char menjadi int */
+
+// DEKLARASI VARIABLE
+var input: char
+var hasil: int
+
+// DEKLARASI ALGORITMA
+// Meminta user untuk memasukkan angka 0-9
+write("Pilih salah satu angka [0-9]")
+write("Jika jumlah digit >1 maka hanya digit pertama yang akan diterima! ")
+input <- read("Input: ")
+
+// Menentukan hasil berdasarkan nilai kebenaran input berada di interval kode ASCII 48 - 57
+hasil <- input >= 48 && input <= 57 ? input - '0' : -1
+write("Hasil konversi dari tipe data char ke int: %i", hasil)

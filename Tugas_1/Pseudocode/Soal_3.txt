@@ -1,0 +1,22 @@
+// Program ini akan menukarkan tiga nilai
+
+// DEKLARASI VARIABLE
+int x, y, z;
+int res_x, res_y, res_z;
+
+// DEKLARASI ALGORITMA
+
+// meminta masukan kepada user
+x <- read("Masukkan nilai x: ");
+y <- read("Masukkan nilai y: ");
+z <- read("Masukkan nilai z: ");
+
+// proses penukaran
+res_y <- x;
+res_z <- y;
+res_x <- z;
+
+// menampilkan hasil konversi
+write("Hasil Penukaran: ");
+write("Input: (%i, %i, %i)", x, y, z);
+write("Output: (%i, %i, %i)", res_x, res_y, res_z);

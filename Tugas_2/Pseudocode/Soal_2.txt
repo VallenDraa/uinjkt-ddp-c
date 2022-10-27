@@ -1,0 +1,31 @@
+/*
+  Program ini menghitung harga akhir setelah dikurangin diskon.
+  Diskon akan diberikan apabila total belanja mencapai Rp.100.000 
+*/ 
+
+// DEKLARASI KONSTANTA
+const var DISKON: float = 0.2
+
+// DEKLARASI VARIABLE
+var total_belanja: float
+var total_belanja_akhir: float
+var total_diskon: float
+
+// DEKLARASI ALGORITMA
+// meminta user untuk menginput total belanja
+while total_belanja <= 0 do
+  write("Belanja min. Rp.100.000 untuk mendapatkan DISKON !")
+  total_belanja <- read("Masukkan total belanja anda: ")
+end while
+
+// melakukan pengecekan terhadap total belanja 
+if total_belanja >= 100000 do
+  total_diskon <- total_belanja * DISKON
+  total_belanja_akhir <- total_belanja - total_diskon
+else do 
+  total_belanja_akhir <- total_belanja
+end if
+
+write("Total belanja anda adalah %.2f",  total_belanja)
+write("Anda mendapatkan diskon sebesar %.2f", total_diskon)
+write("Total akhir belanja anda adalah %.2f", total_belanja_akhir)

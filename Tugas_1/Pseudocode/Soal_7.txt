@@ -1,0 +1,16 @@
+// Program ini akan mengkonversi meter ke dalam satuan inchi, kaki, dan yard
+
+// DEKLARASI VARIABLE
+var input_tinggi: float
+var bb_ideal: float
+
+// DEKLARASI ALGORITMA
+
+// meminta masukan kepada user
+input_tinggi <- read("Masukkan tinggi badan anda: ")
+
+// proses perhitungan berat ideal
+bb_ideal <- abs((input_tinggi - 100) - (input_tinggi - 100) * 0.1) 
+
+// menampilkan hasil konversi
+write("Berat badan ideal untuk tinggi %.2f cm adalah %.2f kg", input_tinggi, bb_ideal)

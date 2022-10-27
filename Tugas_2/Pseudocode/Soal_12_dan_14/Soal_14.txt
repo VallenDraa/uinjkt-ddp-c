@@ -1,0 +1,66 @@
+/*
+  gcc Penghitung_beda_hari.c Soal_14.c -o Soal_14
+  Program ini akan menentukan harga tiket penumpang maskapai penerbangan.
+  umur menjadi faktor untuk mendapatkan diskon. 
+  
+  Program ini harus berada di folder yang sama dengan penghitung_beda_hari.c !
+*/ 
+
+// import fungsi dari header file
+get [Date, menu_input_tanggal] from "penghitung_beda_hari.txt"
+
+
+// DEKLARASI KONSTANTA
+const float HARGA_NORMAL = 200.00
+
+// DEKLARASI STRUCT
+structure Tiket {
+  char nama_penumpang[200]
+  Date dob
+  char tujuan[200]
+  Date keberangkatan
+  float harga_tiket
+}
+
+// DEKLARASI VARIABLE
+var tiket: Tiket
+var umur: float
+var diskon: float  
+
+// DEKLARASI ALGORITMA
+
+// Meminta masukkan berupa data tiket dari user
+write("Pembuatan Tiket Penerbangan !")
+
+tiket.nama_penumpang <- read("Masukkan nama anda: ")
+
+write("Masukkan tanggal lahir anda !")
+menu_input_tanggal(&tiket.dob.hari, &tiket.dob.bulan, &tiket.dob.tahun)
+
+tiket.tujuan <- read("Masukkan tujuan penerbangan anda: ")
+
+do 
+  write("Masukkan tanggal keberangkatan anda !")
+  menu_input_tanggal(&tiket.keberangkatan.hari, &tiket.keberangkatan.bulan, &tiket.keberangkatan.tahun)
+while (tiket.dob.tahun > tiket.keberangkatan.tahun ||  
+        tiket.dob.tahun == tiket.keberangkatan.tahun && tiket.dob.bulan > tiket.keberangkatan.bulan || 
+        tiket.dob.tahun == tiket.keberangkatan.tahun && tiket.dob.bulan == tiket.keberangkatan.bulan && tiket.dob.hari > tiket.keberangkatan.hari) //pelanggaran
+
+// hitung umur penumpang
+umur <- hitung_perbedaan_hari(tiket.dob, tiket.keberangkatan) / 365
+if umur < 12 do
+  diskon <- HARGA_NORMAL * 0.25
+  tiket.harga_tiket <- HARGA_NORMAL - diskon
+else do
+  tiket.harga_tiket <- HARGA_NORMAL
+end if
+
+// Menampilkan hasil akhir
+write("TIKET PENERBANGAN ANDA")
+write("Nama                                     : %s", tiket.nama_penumpang)
+write("Tanggal Lahir                            : %i/%i/%i", tiket.dob.hari, tiket.dob.bulan, tiket.dob.tahun)
+write("Tujuan                                   : %s", tiket.tujuan)
+write("Tanggal Keberangkatan                    : %i/%i/%i", tiket.keberangkatan.hari, tiket.keberangkatan.bulan, tiket.keberangkatan.tahun)
+write("Harga Normal                             : Rp.%.2f", HARGA_NORMAL)
+write("Diskon (umur < 12 tahun, Anda %.0f tahun) : Rp.%.2f", umur, diskon)
+write("Harga Akhir                              : Rp.%.2f", tiket.harga_tiket)

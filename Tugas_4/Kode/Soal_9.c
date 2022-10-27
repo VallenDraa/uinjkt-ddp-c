@@ -1,4 +1,4 @@
-// program ini berisi prosedur untuk menampilkan elemen-elemen larik A yang lebih kecil dari elemen terkecilnya
+// program ini berisi prosedur untuk menampilkan elemen terkecil larik A
 #include <stdio.h>
 
 // deklarasi variable
@@ -11,6 +11,7 @@ void print_terkecil(int arr[], int *hasil);
 // deklarasi algoritma
 int main()
 {
+  // memanggil prosedur
   print_terkecil(arr, &hasil);
 
   return 0;

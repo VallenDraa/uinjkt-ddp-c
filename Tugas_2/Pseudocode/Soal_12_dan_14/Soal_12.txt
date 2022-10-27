@@ -1,0 +1,30 @@
+/*
+  Program ini akan menghitung perbedaan hari antara dua tanggal. 
+  Program ini harus berada di folder yang sama dengan penghitung_beda_hari.c !
+*/ 
+
+// import fungsi dari header file
+get [Date, menu_input_tanggal] from "penghitung_beda_hari.txt"
+
+// DEKLARASI VARIABLE
+var date_1: Date
+var date_2: Date;
+
+// Meminta user untuk menginput data
+write("Data untuk Start Date");
+menu_input_tanggal(date_1.hari, date_1.bulan, date_1.tahun)
+
+// ulang selama memenuhi pelanggaran
+do 
+  write("Start Date: %i/%i/%i", date_1.hari, date_1.bulan, date_1.tahun);
+  write("Data untuk End Date");
+  menu_input_tanggal(date_2.hari, date_2.bulan, date_2.tahun);
+while date_1.tahun > date_2.tahun ||
+      date_1.tahun == date_2.tahun  date_1.bulan > date_2.bulan ||
+      date_1.tahun == date_2.tahun  date_1.bulan == date_2.bulan  date_1.hari > date_2.hari); 
+
+// mencetak perbedaan hari
+write("Perbedaan antara tanggal %i/%i/%i dan %i/%i/%i adalah: %i hari", 
+      date_1.hari, date_1.bulan, date_1.tahun,
+      date_2.hari, date_2.bulan, date_2.tahun,
+      hitung_perbedaan_hari(date_1, date_2));

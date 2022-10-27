@@ -1,0 +1,24 @@
+// Program ini akan mengkonversi masukan detik ke satuan hari, jam, dan menit
+
+// DEKLARASI VARIABLE
+var detik: float
+var menit: float
+var jam  : float
+var hari : float
+
+// DEKLARASI ALGORITMA
+
+// meminta masukan kepada user
+detik <- read("Masukkan detik untuk dikonversi ke hari, jam, dan menit: ");
+
+// proses konversi
+menit <- detik / 60; 
+jam <- menit / 60; 
+hari <- jam / 24;
+
+// menampilkan hasil konversi
+write("Hasil Konversi:");
+write("Detik - %.2f", detik);
+write("Menit - %.2f", menit);
+write("Jam - %.2f", jam);
+write("Hari - %.2f", hari);
