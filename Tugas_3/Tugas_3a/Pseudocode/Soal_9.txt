@@ -1,0 +1,28 @@
+// Program ini akan menguji apakah sebuah bilangan bulat merupakan bilangan prima atau bukan
+
+// deklarasi variable
+var angka: int
+var i: int
+
+// deklarasi algoritma
+// meminta masukan kepada user
+angka <- read("Masukkan Angka: ")
+
+// pengecekan 1
+if angka <= 1 || (angka % 2 == 0 && angka > 2) do
+  return write("Angka bukan bilangan prima")
+end if
+
+// pengecekan 2
+for i <- 3 i to equal sqrt(angka) + 1 do
+  if angka % i == 0 do
+    return write("Angka bukan bilangan prima")
+  end if
+end for
+
+write("Angka adalah bilangan prima")
+
+
+
+
+

@@ -1,0 +1,31 @@
+// program ini berisi prosedur untuk menampilkan elemen terkecil larik A
+
+// deklarasi variable
+var arr: int[] <- [2, 10, 5, 20, 50]
+var hasil: int
+var arr_len: int <- arr.length
+
+// deklarasi prosedur
+fn print_terkecil(arr: int[], *hasil: int, arr_len: int): void
+
+// deklarasi algoritma
+fn main(): void do
+  // memanggil prosedur
+  print_terkecil(arr, &hasil, arr_len)
+  
+  return 0
+end fn
+
+// definisi prosedur
+fn print_terkecil(arr: int[], *hasil: int, arr_len: int): void do
+  *hasil <- arr[0]
+  
+  for i <- 1 to arr.length do
+    if *hasil > arr[i] do
+      *hasil <- arr[i]
+    end if
+  end for
+  
+  write("%arr", arr)
+  write("Hasil terkecil di array adalah %i", *hasil)
+end fn

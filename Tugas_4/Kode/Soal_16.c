@@ -17,7 +17,7 @@ int main()
   // proses perhitungan modus
   for (i = 0; i < arr_len; i++)
   {
-    // PROSES perulangan sebanyak arr_len
+    // proses perulangan sebanyak arr_len
     for (j = 0; j < arr_len; j++)
     {
       if (arr[i] == arr[j])
@@ -30,13 +30,13 @@ int main()
         hasil_modus = arr[i];
         b = arr_item_sum;
       }
-      // PROSES apakah banyaknya nilai yang sekarang sama dengan banyaknya nilai yang sebelumnya?
+      // proses apakah banyaknya nilai yang sekarang sama dengan banyaknya nilai yang sebelumnya?
       else if (arr_item_sum == b)
       {
-        // PROSES apakah nilai arr dengan index i lebih besar dari nilai hasil_modus
+        // proses apakah nilai arr dengan index i lebih besar dari nilai hasil_modus
         if (arr[i] > hasil_modus)
         {
-          // PROSES mendeklarasi nilai hasil
+          // proses mendeklarasi nilai hasil
           b = arr_item_sum;
           hasil_modus = arr[i];
         }
@@ -45,5 +45,7 @@ int main()
   }
 
   // mencetak hasil moduss
-  printf("%i\a", hasil_modus);
+  printf("%i", hasil_modus);
+
+  return 0;
 }

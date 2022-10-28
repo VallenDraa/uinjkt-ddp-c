@@ -1,0 +1,19 @@
+// Program ini akan menghitungjumlah N buah bilangan ganjil pertama
+
+// deklarasi variable
+var hasil: int = TITIK_AWAL
+var jumlah_print: int 
+var i: int 
+
+// deklarasi algoritma
+
+// meminta masukan kepada user
+jumlah_print <- read("Masukkan jumlah iterasi angka ganjil: ")
+
+// menghitung jumlah n buah bilangan ganjil
+hasil <- 2 * jumlah_print - 1;
+
+// menampilkan hasil akhir
+write("Hasil adalah %i", hasil)
+
+

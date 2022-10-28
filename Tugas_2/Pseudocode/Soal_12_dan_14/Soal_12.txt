@@ -4,7 +4,7 @@
 */ 
 
 // import fungsi dari header file
-get [Date, menu_input_tanggal] from "penghitung_beda_hari.txt"
+import {Date, menu_input_tanggal} from "penghitung_beda_hari.txt"
 
 // DEKLARASI VARIABLE
 var date_1: Date

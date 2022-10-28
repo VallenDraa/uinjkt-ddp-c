@@ -30,6 +30,7 @@ int main()
 // definisi prosedur
 void print_arr(int arr[], int arr_len)
 {
+  // deklarasi variabel index untuk loop
   int i;
 
   printf("[ ");

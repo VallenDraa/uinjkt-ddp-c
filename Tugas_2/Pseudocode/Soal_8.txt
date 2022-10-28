@@ -1,0 +1,18 @@
+/* Program ini akan mengklipping pixel agar nilai input berada pada interal 0-255 */ 
+
+// DEKLARASI VARIABLE
+var pixel: int
+var hasil: int
+
+//DEKLARASI ALGORITMA
+pixel <- read("Masukkan Nilai Pixel: ")
+
+if pixel > 255 do
+  hasil = 255 
+else if pixel < 0 do 
+  hasil = 0
+else 
+  hasil = pixel
+end if
+
+write("Hasil: %i", hasil)

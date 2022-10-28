@@ -1,0 +1,27 @@
+/*
+  Program ini akan mencetak bentuk setengah diamond dengan jumlah tingkatan sesuai dengan masukan user
+*/
+
+// deklarasi variable
+int jumlah;
+
+// deklarasi algoritma
+jumlah <- read("masukkan jumlah: ");
+
+// Loop 1 untuk mencetak bagian atas
+for i <- 0 to jumlah do
+  for j <- i down to equal 1 do
+    printf("*");
+  end for
+
+  printf("\n");
+end for
+
+// Loop 1 untuk mencetak bagian bawah
+for i <- jumlah down to equal 1 do
+  for j <- 0 to i do
+    printf("*");
+  end for
+
+  printf("\n");
+end for

@@ -19,8 +19,8 @@ for i to PANJANG_ARRAY do
 end for
 
 // Melakukan bubble sort untuk mengurutkan angka
-for i = 0 to PANJANG_ARRAY do
-  for j = 0 to PANJANG_ARRAY do
+for i <- 0 to PANJANG_ARRAY do
+  for j <- 0 to PANJANG_ARRAY do
     if angka[j] > angka[j + 1] do
       temp <- angka[j + 1]
       angka[j + 1] <- angka[j]
@@ -31,6 +31,6 @@ end for
 
 // Menampilkan angka yang terutut
 write("Angka yang terutut\n")
-for i = 0 to PANJANG_ARRAY do
+for i <- 0 to PANJANG_ARRAY do
   write("%i ", angka[i])
 end for

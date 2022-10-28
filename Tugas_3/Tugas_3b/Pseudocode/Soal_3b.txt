@@ -1,0 +1,36 @@
+/* Program ini akan mencetak bentuk diamond 7 tingkat */
+
+// DEKLARASI PUSTAKA
+#include <stdio.h>
+
+// DEKLARASI KONSTANTA
+const var BARIS: int <- 7
+
+// DEKLARASI ALGORTIMA
+for i <- 1 to equal 4 do  
+  for j <- i to equal 4 do 
+    write("*")
+  end for
+  for k <- 1 to (i * 2 - 1) do 
+    write(" ")
+  end for
+  for j <- i to equal 4 do 
+    write("*")
+  end for
+  
+  write("\n")
+end for
+
+// Loop ini akan mencetak bagian bawah
+for i <- 3 down to equal 1 do 
+  for j <- i to equal 4 do) 
+    write("*")
+  end for
+  for k <- 1 to (i * 2 - 1) do) 
+    write(" ")
+  end for
+  for j <- i to equal 4 do) 
+    write("*")
+  end for
+  write("\n")
+end for

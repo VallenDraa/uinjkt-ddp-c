@@ -1,0 +1,74 @@
+// gcc date.c Soal_10.c -o Soal_10
+// Program ini berisi prosedur yang menerima nama hari sekarang dan menentukan hari sebelumnya
+get [Date, day_diff] from "penghitung_beda_hari.txt"
+
+// deklarasi konstanta
+const var AWAL_ABAD_20: Date <- {1, 1, 1900}
+
+// deklarasi variable
+var Input: Date <- {0, 0, 0}
+var input_tanggalL string
+
+// deklarasi prosedur
+fn jarak_dari_1900(input: Date): void
+
+// deklarasi algoritma
+fn main(): int do
+  // meminta masukan hari dari user
+  while (true) do
+    input_tanggal <- read("Masukkan Tanggal [dd-mm-yyyy]: ")
+
+    // parsing
+    Input.hari <- atoi(strtok(input_tanggal, "-"))
+    Input.bulan <- atoi(strtok(NULL, "-"))
+    Input.tahun <- atoi(strtok(NULL, "-"))
+    
+    // validasi tahun
+    if Input.tahun < 1900 do
+      write("Illegal tahun")
+      Input.tahun <- 0
+      continue
+    end if
+    
+    // validasi bulan
+    if Input.bulan > 12 || Input.bulan <= 0 do
+      write("Illegal Bulan")
+      Input.bulan <- 0
+      continue
+    end if
+    
+    // validasi tanggal
+    if Input.hari > 0 do
+      if is_kabisat(Input.tahun) && Input.bulan == 2 do
+        if Input.hari > 29 do
+          write("Illegal Hari")
+          Input.hari <- 0
+          continue
+      end
+      else do
+        if Input.hari > HARI_BULAN[Input.bulan - 1] do
+          write("Illegal Hari")
+          Input.hari <- 0
+          continue
+        end if
+      end if
+    else do
+      write("Illegal Hari")
+      Input.hari <- 0
+      continue
+    end if
+    
+    if Input.tahun != 0 && Input.bulan != 0 && input_tanggal != 0 do
+      break
+    end if
+  end while
+  
+  // pemanggilan prosedur
+  jarak_dari_1900(Input)
+  return 0
+end fn
+
+fn jarak_dari_1900(input: Date): void do
+  var perbedaan_hari: int <- day_diff(AWAL_ABAD_20, input)
+  write("Jumlah hari dari tanggal 1-1-1900 hingga %i-%i-%i adalah %i hari", input.hari, input.bulan, input.tahun, perbedaan_hari)
+end fn

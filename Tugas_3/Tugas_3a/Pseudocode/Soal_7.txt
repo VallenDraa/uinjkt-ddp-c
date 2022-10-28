@@ -1,0 +1,56 @@
+// Program ini akan mensimulasi proses penyetoran dan penarikan uang pada bank
+
+// deklarasi variable global
+var saldo: long long <- 50000
+var nominal_masukan: long long 
+var kode_transaksi: int
+var isUlang[6]: char 
+enum Tipe_transaksi { setor = 0, tarik = 1 }
+
+
+// deklarasi algoritma
+// program mulai
+do 
+  // meminta masukan kepada user
+  do 
+    write("Saldo Anda: %lli", saldo)
+    write("Masukkan kode transaksi !")
+    write("0 untuk Setor Tunai")
+    write("1 untuk Tarik Tunai")
+    kode_transaksi <- read("Input anda: ")
+  while kode_transaksi != setor && kode_transaksi != tarik
+
+  // prompt masukan nominal akan sesuai dengan menu yang dipilih 
+  if kode_transaksi == tarik do
+    
+    // validasi proses melakukan penarikan tunai 1
+    if saldo > 10000 do
+      nominal_masukan <- read("Masukkan jumlah penarikan: ")
+
+      // validasi proses melakukan penarikan tunai 2 
+      if nominal_masukan < saldo && saldo - nominal_masukan >= 10000) do
+        saldo -= nominal_masukan
+        write("Anda menarik tunai sebanyak: Rp.%lli", nominal_masukan)
+      else do
+        write("Jumlah penarikan lebih besar dari saldo yang anda miliki !")
+      end if
+    else do
+      write("Penarikan tunai bisa dilakukan ketika saldo >Rp.10.000")
+    end if
+  else do 
+    nominal_masukan <- read("Masukkan jumlah setor: ")
+    saldo += nominal_masukan
+  end if
+
+  // menampilkan saldo  
+  write("Saldo anda: Rp.%lli", saldo)
+  
+  // menanyakan kepada user apakah ingin mengulang program
+  do 
+    write("Apakah anda ingin melakukan transaksi lain ?")
+    isUlang <- read("Input anda [ya/tidak]: ")
+  while (isUlang == "ya" && isUlang == "tidak")
+while (isUlang == "ya"0)
+
+// user keluar dari program
+write("Terima Kasih telah menggunakan Bank XYZ !")

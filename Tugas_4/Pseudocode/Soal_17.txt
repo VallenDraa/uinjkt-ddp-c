@@ -1,0 +1,103 @@
+/* Program ini berisi element struct mahasiswa
+  1. membuat fungsi untuk mencetak data mahasiswa dengan IP > 2.0
+  2. membuat fungsi untuk mencetak nama dan nim mahasiswa dengan IPK tertinggi dan terendah
+*/
+
+// deklarasi variable
+structure Mahasiswa{
+  nama: char[120]
+  NIM: long long 
+  IPK: float 
+}
+
+var list_mhs[]: Mahasiswa <- [
+  {"Foo", 11220910000111, 1.5},
+  {"Bar", 11220910000222, 3.1},
+  {"John", 11220910000333, 4},
+  {"Doe", 11220910000444, 2.5},
+]
+var (input_menu, i): int
+
+// deklarasi prosedur
+fn nim_gt_dua(): void
+fn nim_highest_lowest(): void
+
+// deklarasi algoritma
+fn main(): int do
+  while true do
+    // meminta tipe query data mahasiswa
+    write("masukkan tipe fungsi yang ingin di eksekusi !")
+    write("1. Tampilkan mahasiswa dengan NIM > 2.0")
+    write("2. Tampilkan 2 mahasiswa dengan NIM tertinggi dan terendah")
+    write("3. Keluar dari program")
+    input_menu <- read("Input Anda: ")
+    
+    // mengecek input menu user
+    if input_menu == 1 do
+      nim_gt_dua()
+    else if input_menu == 2 do
+      nim_highest_lowest()
+    else if input_menu == 3 do
+      break
+    else do
+      continue
+    end if
+  end while
+  
+  // keluar dari program
+  write("Terima kasih telah menggunakan program ini !")
+  return 0
+end fn
+
+// definisi fungsi
+fn nim_gt_dua(): void do
+  var len_list: int <- list_mhs.length
+  var hasil_pos_kosong: int <- 0
+  var hasil: Mahasiswa[len_list]
+  
+  // mengepush mahasiswa dengan ipk > 2 ke dalam array hasil
+  for i <- 0 to len_list do
+    if list_mhs[i].IPK > 2 do
+      hasil[hasil_pos_kosong] <- list_mhs[i]
+      hasil_pos_kosong++
+    end if
+  end for
+  
+  // mencetak hasil
+  write("Mahasiswa dengan IPK > 2.0")
+  for i <- 0 to hasil_pos_kosong do
+    write("%i. Nama: %s, NIM: %lli, IPK: %.2f", i + 1, hasil[i].nama, hasil[i].NIM, hasil[i].IPK)
+  end
+
+  write("Press any button to continue !")
+  getche()
+end fn
+
+fn nim_highest_lowest(): void do
+  var len_list: int <- list_mhs.length
+  var si_paling_rajin: Mahasiswa <- list_mhs[0]      // mahasiswa dengan IPK tertinggi
+  var si_paling_skip_kelas: Mahasiswa <- list_mhs[0] // mahasiswa dengan IPK terendah
+
+  // meloop seisi array mahasiswa
+  for i = 0 to len_list do
+    // validasi IPK tertinggi
+    if list_mhs[i].IPK > si_paling_rajin.IPK do
+      si_paling_rajin <- list_mhs[i]
+    end if
+    
+    // validasi IPK terendah
+    if list_mhs[i].IPK < si_paling_skip_kelas.IPK do
+      si_paling_skip_kelas <- list_mhs[i]
+    end if
+  end fn
+  
+  // mencetak hasil
+  write("Mahasiswa dengan IPK Tertinggi")
+  write("1. Nama: %s, NIM: %lli, IPK: %.2f",
+  si_paling_rajin.nama, si_paling_rajin.NIM, si_paling_rajin.IPK)
+  write("Mahasiswa dengan IPK Terendah")
+  write("2. Nama: %s, NIM: %lli, IPK: %.2f",
+  si_paling_skip_kelas.nama, si_paling_skip_kelas.NIM, si_paling_skip_kelas.IPK)
+  write("Press any button to continue !")
+  getche()
+end fn

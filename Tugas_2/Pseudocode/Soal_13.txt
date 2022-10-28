@@ -1,0 +1,24 @@
+/* Program ini akan mengkategorisasi umur seseorang */ 
+
+// DEKLARASI VARIABLE
+var umur: int
+
+
+//DEKLARASI ALGORITMAXIMGGOR
+// Meminta masukkan kepada user
+do 
+  umur <- read("Masukkan umur anda: ")
+while umur < 0
+
+// Menentukkan kategori berdasarkan umur
+if umur >= 0 && umur < 5 do
+  printf("\nAnda adalah balita")
+else if umur >= 5 && umur < 12 do
+  printf("\nAnda adalah anak-anak")
+else if umur >= 12 && umur < 20 do
+ printf("\nAnda adalah Remaja")
+else if umur >= 20 && umur < 60 do
+ printf("\nAnda adalah Dewasa")
+else do 
+  printf("\nAnda adalah Lansia")
+end if

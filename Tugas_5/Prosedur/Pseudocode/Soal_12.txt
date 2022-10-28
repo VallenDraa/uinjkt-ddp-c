@@ -1,0 +1,38 @@
+/* Program ini akan mencetak 5 tingkatan awal dari sebuah segitiga paskal */
+
+// deklarasi variable
+var (i, j, k, baris, hitung = 0, count1 = 0): int
+
+// deklarasi algoritma
+fn main(): int do
+  // meminta masukan dari user
+  do
+    baris <- read("Masukkan jumlah baris untuk segitiga: ")
+  while baris > 10
+  
+  // mencetak segitiga
+  for i <- 1 to equal baris do
+    // menecetak spasi dalam segitiga
+    for j <- 1 to equal (baris - i) do
+      write(" ")
+      hitung++
+    end for
+    
+    // mencetak angka
+    for k <- 0 to (2 * i - 1) do
+      if hitung <= baris - 1 do
+        write("%i", i + k)
+        hitung++
+      else do
+        count1++
+        write("%i", (i + k - 2 * count1))
+      end if
+    end for
+    
+    count1 = 0
+    hitung = 0
+    write("\n")
+  end for
+  
+  return 0
+end

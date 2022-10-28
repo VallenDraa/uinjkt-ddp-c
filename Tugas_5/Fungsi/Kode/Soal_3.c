@@ -26,6 +26,6 @@ int main()
 // definisi fungsi
 bool is_input_a(char huruf)
 {
-  bool hasil = huruf == 'a';
+  bool hasil = huruf == 'a' || huruf == "A";
   return hasil;
 }

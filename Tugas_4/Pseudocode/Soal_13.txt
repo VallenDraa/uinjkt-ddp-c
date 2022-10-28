@@ -1,0 +1,23 @@
+// PROGRAM untuk konkatenasi dua buah string
+
+// DEKLARASI variable
+var str_len: int
+
+// ALGORITMA
+// meminta masukan dari user
+str_len <- read("masukkan panjang string pertama dan kedua: ")
+
+// deklarasi variable string
+var str_1: char[str_len]
+var str_2: char[str_len]
+var str_hasil: char[str_len * 2]
+
+// meminta masukan string 1 dari user
+str_1 <- read("masukan string pertama: ")
+
+// meminta masukan string 2 dari user
+str_2 <- read("masukan string kedua: ")
+
+// mencetak hasil konkatenasi 2 string
+write("%s%s", str_1, str_2)
+return 0

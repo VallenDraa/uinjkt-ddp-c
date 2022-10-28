@@ -17,10 +17,10 @@ typedef struct
   float IPK;
 } Mahasiswa;
 Mahasiswa list_mhs[] = {
-    {"Vallen", 1122091000026, 1.5},
-    {"Nashif", 11220910000038, 3.1},
-    {"Faiz", 1122091000068, 4},
-    {"oskhar", 1122091000036, 2.5},
+    {"Foo", 11220910000111, 1.5},
+    {"Bar", 11220910000222, 3.1},
+    {"John", 11220910000333, 4},
+    {"Doe", 11220910000444, 2.5},
 };
 
 int input_menu, i;
@@ -34,7 +34,7 @@ int main()
 {
   while (true)
   {
-    system("cls");
+    // system("cls");
     // meminta tipe query data mahasiswa
     printf("\nmasukkan tipe fungsi yang ingin di eksekusi !");
     printf("\n1. Tampilkan mahasiswa dengan NIM > 2.0");

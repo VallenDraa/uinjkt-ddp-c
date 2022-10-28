@@ -1,0 +1,26 @@
+// program untuk menentukan apakah nilai input berupa karakter a
+
+// deklarasi variable
+var input_char: char
+
+// deklarasi fungsi
+fn is_input_a(huruf: char): boolean
+
+// deklarasi algoritma
+fn main(): int do
+  // meminta masukan dari user
+  input_char <- read("Masukkan huruf : ")
+
+  // menampilkan hasil
+  is_input_a(input_char)
+    ? write("Input berupa karakter a")
+    : write("Input bukan berupa karakter a")
+  
+  return 0
+end fn
+
+// definisi fungsi
+fn is_input_a(huruf: char): bool do
+  var hasil: boolean <- huruf == 'a' || huruf == "A
+  return hasil
+end fn

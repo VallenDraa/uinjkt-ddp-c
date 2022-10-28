@@ -1,0 +1,35 @@
+// Program ini akan memiliki fungsi untuk mengembalikan nilai mutlak,
+// nilai kali 2, dan bentuk angka berupa ganjil
+
+// DEKLARASI VARIABEL
+var input_int: int
+
+// deklarasi fungsi
+fn abs(x: int): int
+fn times_2(x: int): int
+fn is_odd(x: int): boolean
+
+// ALGORITMA
+fn main(): int do
+  // meminta masukan dari user
+  input_int <- read("Masukan sebuah integer :")
+
+  // memanggil fungsi dan mencetak hasil
+  read("nilai mutlak %i adalah %i", input_int, abs(input_int))
+  read("nilai double dari %i adalah %i", input_int, times_2(input_int))
+  read(is_odd(input_int) ? "%i adalah bilangan ganjil" : "%i bukan bilangan ganjil", input_int)
+end fn
+
+fn abs(x: int): int do
+  int hasil <- x < 0 ? x * -1 : x
+  return hasil
+end fn
+fn times_2(x: int): int do
+  int hasil <- 2 * x
+  return hasil
+end fn
+
+fn is_odd(x: int): int do
+  bool hasil <- x % 2 != 0
+  return hasil
+end fn

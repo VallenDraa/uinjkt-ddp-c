@@ -1,0 +1,39 @@
+/* 
+  Program ini akan membaca semua input karakter dari user  dan hanya akan berhenti ketika input berupa .
+  Kemudian hasil akan di cetak ke layar 
+*/
+
+// DEKLARASI GLOBAL VARIABLE
+input_str: char
+var str_size: int <- 10
+var curr_idx: int <- 0
+
+// DEKLARASI ALGORITMA
+
+// mengalokasi ukuran default string pada memori
+input_str <- malloc(str_size * char.byteSize)
+
+// Meminta masukkan karakter dari user
+while true do
+
+  // mengalokasi tambahan memori jika array sudah full capacity
+  if curr_idx == str_size - 1 do
+    str_size *= 2
+    input_str = realloc(input_str, str_size * sizeof(char))
+  end if
+
+  input_str[curr_idx] <- read("Masukkan Karakter ke-%i: ", curr_idx + 1)
+  
+  if input_str[curr_idx] == '.' do
+    input_str[curr_idx] = '\0'
+    break 
+  end if
+
+  // bergerak ke posisi elemen berikutnya pada array
+  curr_idx++ 
+end while
+
+write(input_str)
+
+// menghapus memori yang dipakai untuk string
+free(input_str)

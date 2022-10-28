@@ -1,0 +1,36 @@
+// program ini berisikan prosedur untuk menghitung jumlah N buah bilangan genap pertama
+
+// deklrasi variable
+var iterasi_input: int = 0
+var (input_angka, hasil, jumlah = 0): float
+
+// mencetak N buah bilangan genap pertama
+fn hitung_rata_rata(jumlah: float, iterasi_input: int, *hasil: float):void
+
+fn main(): int do
+  while true do
+    // Meminta masukan dari user
+    input_angka <- read("Masukkan angka [ketik 9999 untuk mengakhiri program]: ")
+    
+    // melakukan pengecekan kode keluar program
+    if input_angka == 9999 do
+      break
+    end if
+    
+    // proses penambahan total angka input
+    jumlah += input_angka
+    iterasi_input += 1
+  end while
+  
+  // memanggil prosedur
+  hitung_rata_rata(jumlah, iterasi_input, &hasil)
+  return 0
+end fn
+
+// Definisi Prosedur
+fn hitung_rata_rata(jumlah: void, iterasi_input: int, *hasil: void): void do
+
+  *hasil = jumlah / iterasi_input
+  
+  write("Hasil rata-rata adalah: %.2f", *hasil)
+end fn

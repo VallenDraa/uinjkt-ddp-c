@@ -1,34 +1,32 @@
 /* Program ini akan mengkonversi input integer ke bentuk angka romawi */ 
 
-// DEKLARASI STRUCT
-typedef struct { int num; char roman[2]; } Angka_Romawi;
+structure Angka_Romawi { 
+  int num 
+  char roman[2] 
+} 
 
 // DEKLARASI KONSTANTA
-  const Angka_Romawi LIST_ANGKA[] = {
-    { 1000, "M" }, { 900, "CM" }, { 500, "D" }, { 400, "CD" },
-    { 100, "C" }, { 90, "XC" }, { 50, "L" }, { 40, "XL" },
-    { 10, "X" }, { 9, "IX" }, { 5, "V" }, { 4, "IV" }, { 1, "I" }
-  };
-  const int PANJANG_ARR = sizeof(LIST_ANGKA) / sizeof(LIST_ANGKA[0]);
+const LIST_ANGKA[]: Angka_Romawi <- [
+  { 1000, "M" }, { 900, "CM" }, { 500, "D" }, { 400, "CD" },
+  { 100, "C" }, { 90, "XC" }, { 50, "L" }, { 40, "XL" },
+  { 10, "X" }, { 9, "IX" }, { 5, "V" }, { 4, "IV" }, { 1, "I" }
+]
+const PANJANG_ARR: int <- LIST_ANGKA.length
 
-  // DEKLARASI VARIABLE
-  int angka;
+// DEKLARASI VARIABLE
+var angka: int
   
+// DEKLARASI ALGORITMA
+// meminta user untuk menginput angka dengan beberapa batasan 
+do 
+  angka <- read("Masukkan angka (input harus <= 3999): ")
+while angka <= 0 or angka > 3999
 
-int main() {
-  // meminta user untuk menginput angka dengan beberapa batasan 
-  do 
-    angka  <- write("\nMasukkan angka: ");
-  while angka <= 0 || angka > 3999)
-  
-  // menampilkan hasil akhir dari angka romawi
-  write("\nAngka Romawi dari %i adalah: ", angka);  
-  for i = 0 to i < PANJANG_ARR; i++) do
-    while (angka >= LIST_ANGKA[i].num) do
-      angka = angka - LIST_ANGKA[i].num;
-      write("%s", LIST_ANGKA[i].roman);
-    end while (angka
-  end for
-  
-  return 0;
-}
+// menampilkan hasil akhir dari angka romawi
+write("Angka Romawi dari %i adalah: ", angka)  
+for i <- 0 to PANJANG_ARR do
+  while angka >= LIST_ANGKA[i].num) do
+    angka <- angka - LIST_ANGKA[i].num
+    write("%s", LIST_ANGKA[i].roman)
+  end while
+end for 

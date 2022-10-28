@@ -27,50 +27,7 @@ int main()
 // definisi fungsi
 char *bentuk_romawi(int bil)
 {
-  char hasil[3];
+  char romawi[][5] = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"};
 
-  if (bil == 1)
-  {
-    return "I";
-  }
-  else if (bil == 2)
-  {
-    return "II";
-  }
-  else if (bil == 3)
-  {
-    return "III";
-  }
-  else if (bil == 4)
-  {
-    return "IV";
-  }
-  else if (bil == 5)
-  {
-    return "V";
-  }
-  else if (bil == 5)
-  {
-    return "V";
-  }
-  else if (bil == 6)
-  {
-    return "VI";
-  }
-  else if (bil == 7)
-  {
-    return "VII";
-  }
-  else if (bil == 8)
-  {
-    return "VIII";
-  }
-  else if (bil == 9)
-  {
-    return "IX";
-  }
-  else if (bil == 10)
-  {
-    return "X";
-  }
+  return romawi[bil == 0 ? bil : bil - 1];
 }

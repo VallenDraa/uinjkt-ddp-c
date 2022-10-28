@@ -1,0 +1,32 @@
+// program ini akan menghitung simpangan baku dari sebuah array
+
+// deklarasi variable
+var i: int
+var j: int
+var arr: int[] <- [150, 167, 175, 157, 165, 153, 177, 160]
+var arr_len: int <- arr.length
+var sum: int = 0
+float rata_rata = 0   //∑ xi/n
+float simpangan_total // ∑(xi - x̄) ^ 2
+float simpangan_baku
+
+// deklarasi algoritma
+// menambahkan seluruh item pada array
+for i <- 0 to arr_len do
+  sum <- sum + arr[i]
+end for
+
+// menghitung rata-rata
+rata_rata <- sum / arr_len
+
+// menghitung simpangan total
+for  i <- 0 to arr_len do
+  simpangan_total <- simpangan_total + pow(arr[i] - rata_rata, 2)
+end for
+
+// menghitung simpangろan baku
+simpangan_baku <- sqrt(simpangan_total / arr_len)
+
+// mencetak hasil
+write("%arr", arr)
+write("Simpangan Baku bernilai: %.2f", simpangan_baku)

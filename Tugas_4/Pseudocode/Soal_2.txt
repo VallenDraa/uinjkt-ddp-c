@@ -1,0 +1,35 @@
+// Program untuk menentukan range nilai di dalam larik
+
+// deklarasi variable
+var (arr_len, i, s): int
+var (terbesar, terkecil, range): int
+
+// deklarasi algoritma
+  // meminta input dari user
+  arr_len <- read("Masukan panjang array:")
+
+  // membuat array
+  var custom_arr: int[arr_len]
+
+  // memasukkan nilai pada setiap index dalam array
+  for i <- 0 to arr_len do
+    custom_arr[i] <- read("nilai item pada index %i : ", i)
+  end for
+
+  // mengisi nilai default untuk nilai terbesar dan terkecil
+  terbesar <- custom_arr[0]
+  terkecil <- custom_arr[0]
+
+  // meloop seisi array untuk mencari nilai terbesar dan terkecil
+  for i <- 0 i < arr_len do
+    if custom_arr[i] > terbesar do
+      terbesar <- custom_arr[i]
+    end if
+    if custom_arr[i] < terkecil do
+      terkecil <- custom_arr[i]
+    end if
+  end for
+
+  // menghitung range dan menampilkan hasilnya
+  range <- terbesar - terkecil
+  write("range nilai di dalam array adalah %i :", range)

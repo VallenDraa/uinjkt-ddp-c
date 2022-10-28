@@ -28,6 +28,6 @@ end while
 
 // mencetak hasil data penduduk
 write("Tabel data penduduk per tahun: \n")
-for i to year do
+for i <- 0 to year do
   write("%i. %i - %lli\n", i + 1, i + 2022, db[i])
 end for

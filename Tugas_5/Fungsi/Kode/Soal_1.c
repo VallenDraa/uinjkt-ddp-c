@@ -22,11 +22,12 @@ int main()
   scanf("%i", &input_int);
 
   // memanggil fungsi dan mencetak hasil
-  printf("nilai mutlak  %i adalah %i", input_int, abs(input_int));
-  printf("\n nilai double dari %i adalah %i", input_int, times_2(input_int));
-  printf(is_odd(input_int) ? "\n %i adalah bilangan ganjil" : "\n %i bukan bilangan ganjil", input_int);
+  printf("nilai mutlak %i adalah %i \n", input_int, abs(input_int));
+  printf("nilai double dari %i adalah %i \n", input_int, times_2(input_int));
+  printf(is_odd(input_int) ? "%i adalah bilangan ganjil" : "%i bukan bilangan ganjil", input_int);
 }
 
+// DEKLARASI DEFINISI
 int abs(int x)
 {
   int hasil = x < 0 ? x * -1 : x;
@@ -37,7 +38,6 @@ int times_2(int x)
   int hasil = 2 * x;
   return hasil;
 }
-
 bool is_odd(int x)
 {
   bool hasil = x % 2 != 0;

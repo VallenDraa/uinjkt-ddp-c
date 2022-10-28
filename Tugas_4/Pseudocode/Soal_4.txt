@@ -1,0 +1,34 @@
+// program untuk mencari nilai terkecil pada array
+
+// deklarasi variable
+var arr_len: int
+var i: int
+var nilai_terkecil: int
+
+// ALGORITMA
+
+// meminta masukan dari user
+arr_len <- read("Masukan panjang array:")
+
+// membuat array dengan panjang custom
+var arr: int[arr_len]
+
+// meminta user untuk menginput seluruh nilai pada array
+for i <- 0 to arr_len do
+  arr[i] <- read("nilai item pada index %i: ", i)
+end for
+
+// mengisi nilai defaukt untuk nilai terkecil
+nilai_terkecil <- arr[1]
+
+// meloop seisi array untuk mencari nilai terkecil
+for i <- 0 to arr_len do
+  // pengecekan nilai saat ini lebih kecil dari sebelumnya
+  if arr[i] < nilai_terkecil do
+    nilai_terkecil = arr[i]
+  end if
+end
+
+// mecetak hasil nilai terkecil
+write("Nilai terkecil pada array adalah %i", nilai_terkecil)
+

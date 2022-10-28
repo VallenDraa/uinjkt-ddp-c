@@ -1,0 +1,29 @@
+// program ini akan mengkonversi bilangan bulat k bentuk romawi
+
+// deklarasi 
+
+// deklarasi variable
+var input_int: int
+
+// deklarasi fungsi
+fn bentuk_romawi(bil: int): string
+
+// deklarasi algoritma
+fn main(): int do
+  // meminta masukan dari user
+  do
+    input_int <- read("Masukan bilangan antara 1 - 10 untuk dikonversi ke bentuk romawi:")
+  while input_int > 10 || input_int <= 0
+  
+  // mencetak hasil konversi angka romawi
+  write("Angka Romawinya dari %i adalah %s", input_int, bentuk_romawi(input_int))
+  
+  return 0
+end fn
+
+// definisi fungsi
+fn bentuk_romawi(bil: int): string do
+  var romawi: string[] <- ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"]
+  var hasil: string <- romawip[bil == 0 ? bil : bil - 1]
+  return hasil
+end fn

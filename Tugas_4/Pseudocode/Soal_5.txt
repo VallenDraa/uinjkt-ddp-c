@@ -1,0 +1,55 @@
+// Program ini akan menukar nilai pada array arr_1 dan arr_2
+
+// Deklarasi variabel
+var arr_1: int[] = [16, 23, 55, 23, 23, 11, 3]
+var arr_2: int[] = [6, 98, 45, 5, 87, 3, 3]
+
+// prosedur
+fn print_arr(int arr[], int arr_len): void
+fn tukar_elemen(int i): void
+
+// deklarasi algoritma
+fn main(): int do
+  write("sebelum ditukar: \n")
+  print_arr(arr_1, sizeof(arr_1) / sizeof(arr_1[0]))
+  write("\n")
+  print_arr(arr_2, sizeof(arr_2) / sizeof(arr_2[0]))
+
+  tukar_elemen(6)
+
+  write("\nsesudah ditukar: \n")
+  print_arr(arr_1, sizeof(arr_1) / sizeof(arr_1[0]))
+  write("\n")
+  print_arr(arr_2, sizeof(arr_2) / sizeof(arr_2[0]))
+  write("\n")
+
+  return 0
+end fn
+
+// definisi prosedur
+fn print_arr(int arr[], int arr_len): void do
+  // deklarasi variabel index untuk loop
+  var i: int
+  
+  write("[ ")
+  for i <- 0 to arr_len do
+    if i == arr_len - 1 do
+      write("%i", arr[i])
+      else do
+        write("%i, ", arr[i])
+      end if
+    end for
+    write(" ]")
+end fn
+
+fn tukar_elemen(int arr_len): void do
+  // deklarasi variable untuk memebantu proses penukaran
+  var (i, temp): int
+
+  // proses menukar isi antara 2 array
+  for i <- 0 to arr_len do
+    temp <- arr_1[i]
+    arr_1[i] <- arr_2[i]
+    arr_2[i] <- temp
+  end for
+end fn

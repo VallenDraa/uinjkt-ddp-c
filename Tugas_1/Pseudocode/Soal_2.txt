@@ -5,31 +5,31 @@ const var SATU_BULAN: int <- 30
 const var SATU_TAHUN: int <- 365
 
 // DEKLARASI VARIABLE
-var input_hari: int;
+var input_hari: int
 structure Hasil {
-  int hari;
-  int bulan;
-  int tahun;
-};
-var res: Hasil;
+  int hari
+  int bulan
+  int tahun
+}
+var res: Hasil
 
 // DEKLARASI ALGORITMAXIMG
 
 // meminta masukan kepada user
-input_hari <- read("Masukkan lama projek dalam bentuk hari: ");
+input_hari <- read("Masukkan lama projek dalam bentuk hari: ")
 
 // proses konversi
 while input_hari >= SATU_TAHUN do
-  res.tahun += 1;
-  input_hari -= SATU_TAHUN;
+  res.tahun += 1
+  input_hari -= SATU_TAHUN
 end while
 
 while input_hari >= SATU_BULAN do
-  res.bulan += 1;
-  input_hari -= SATU_BULAN;
+  res.bulan += 1
+  input_hari -= SATU_BULAN
 end while
 
-res.hari <- input_hari;
+res.hari <- input_hari
 
 // menampilkan hasil konversi
-write("Lama projek adalah %i Tahun - %i Bulan - %i Hari", res.tahun, res.bulan, res.hari);
+write("Lama projek adalah %i Tahun - %i Bulan - %i Hari", res.tahun, res.bulan, res.hari)

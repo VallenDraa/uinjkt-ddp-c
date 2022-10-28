@@ -1,0 +1,66 @@
+// Program ini berisi fungsi yang menerima nama hari sekarang dan mengembalikan hari kemarinnya
+
+// deklarasi konstanta
+var NAMA_HARI: string[] <- ["senin", "selasa", "rabu", "kamis", "jumat", "sabtu", "minggu"]
+
+// deklarasi variable
+var (i, input_hari_len, hasil <- -1); int
+var (input_hari, hasil_hari): string[]
+
+// deklarasi prosedur
+fn hari_kemarin(input_hari: string[]): int
+
+// deklarasi algoritma
+fn main(): int do
+  // meminta masukan hari dari user
+  while true do
+    input_hari <- read("Masukkan nama hari (ketik e untuk keluar): ")
+
+    // keluar dari program jika input adalah karakter e
+    if input_hari == "e" do
+      break
+    end if
+    
+    // mengkonversi input menjadi lowercase
+    input_hari_len <- input_hari.length
+    for i <- 0 to (input_hari_len - 1) do
+      input_hari[i] <- tolower(input_hari[i])
+    end for
+
+    // pemanggilan fungsi
+    hasil <-  hari_kemarin(input_hari)
+    
+    // jika hasil invalid
+    if hasil == -1 do
+      continue
+      // jika hasil valid
+    else do
+      printf("Hari sebelum %s adalah %s", input_hari, NAMA_HARI[hasil])
+    end if
+  end while
+
+  return 0
+end fn
+
+// akan mengembalikan nilai index hari jika tidak valid maka akan mengembalikan -1
+fn hari_kemarin(input_hari: string[]): int do
+  var hasil, i: int
+  
+  // jika hari minggu maka kembalikan senin
+  if input_hari == "senin" do
+    hasil = 6
+    return hasil
+  else do
+    // loop untuk mencari hari yang sama dengan input
+    for i <- 0 to 6 do
+      // proses validasi hari
+      if input_hari == NAMA_HARI[i] do
+        hasil <- i - 1
+        return hasil
+      end if
+    end for
+
+    hasil = -1
+    return hasil
+  end if
+end fn

@@ -1,0 +1,37 @@
+/* Program ini akan mencari nilai KPK dari dua variables*/
+
+// DEKLARASI VARIABLE
+var (a, b, KPK = 0): int
+
+// DEKLARASI PROCEDURE
+fn kpk(a: int, b: int, *KPK: int): void
+
+// DEKLARASI ALGORTIMA
+fn main(): int do
+  // meminta masukan kepada user
+  a <- read("Masukkan bilangan bulat pertama: ")
+  b <- read("Masukkan bilangan bulat kedua : ")
+
+  // memanggil procedure
+  kpk(a, b, &KPK)
+  return 0
+end fn
+
+// definisi prosedur
+fn kpk(a: int, b: int, *KPK: int) do
+  // Hanya akan memiliki kpk jika bilangan a dan b bukan 0
+  if a != 0 && b != 0 do
+    var nilai_tertinggi: int <- a > b ? a : b
+    
+    for i <- nilai_tertinggi to (a * b) do
+      if i % a == 0 && i % b == 0 do
+        *KPK <- i
+        break
+      end if
+    end for
+  else do
+    *KPK <- 0
+  end if
+  
+  printf("Hasil KPK dari bilangan %i dan %i adalah %i", a, b, *KPK)
+end fn

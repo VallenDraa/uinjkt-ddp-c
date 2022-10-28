@@ -3,7 +3,7 @@
 
 // deklarasi variable
 int arr[] = {2, 10, 5, 20, 50};
-int hasil;
+int hasil, i;
 
 // deklarasi prosedur
 void print_terbesar(int arr[], int *hasil, int arr_len);
@@ -22,11 +22,18 @@ void print_terbesar(int arr[], int *hasil, int arr_len)
 {
   *hasil = arr[0];
 
-  for (int i = 1; i < arr_len; i++)
+  for (i = 1; i < arr_len; i++)
   {
     if (arr[i] > *hasil)
       *hasil = arr[i];
   }
 
+  // mencetak hasil
+  printf("[ ");
+  for (i = 0; i < arr_len; i++)
+  {
+    i == arr_len - 1 ? printf("%i", arr[i]) : printf("%i, ", arr[i]);
+  }
+  printf(" ]\n");
   printf("Hasil terkecil di array adalah %i", *hasil);
 }

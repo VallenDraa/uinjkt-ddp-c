@@ -1,0 +1,30 @@
+// program ini berisi prosedur untuk menampilkan elemen-elemen larik A yang lebih kecil dari elemen terkecilnya
+
+// deklarasi variable
+var arr_1: int[] <- [2, 4, 6, 8]
+var arr_2: int[] <- [2, 3, 4, 5, 6]
+var hasil: int
+
+// deklarasi prosedur
+fn print_median(arr: int[], *hasil: int, arr_len: int): void
+
+// deklarasi algoritma
+fn main(): void do
+  print_median(arr_1, &hasil, arr_1.length)
+  print_median(arr_2, &hasil, arr_2.length)
+  
+  return 0
+end fn
+
+// definisi prosedur
+fn print_median(arr: int[], *hasil: int, arr_len: int): void do
+  var arr_len: intt <- arr.length
+  
+  // validasi panjang array untuk mengekesuki rumus yang berbeda
+  *hasil <- arr_len % 2 == 0
+              ? (arr[(arr_len - 1) / 2] + arr[arr_len / 2]) / 2
+              : arr[arr_len / 2];
+  
+  write("%arr", arr)
+  write("Median dari array adalah %i", *hasil)
+end fn

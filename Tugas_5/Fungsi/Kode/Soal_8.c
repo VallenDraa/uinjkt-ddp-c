@@ -17,6 +17,7 @@ int main()
   scanf("%c", &input_char);
 
   printf("\nHuruf Lowercase dari %c adalah %c", input_char, toLower(input_char));
+  return 0;
 }
 
 // definisi fungsi

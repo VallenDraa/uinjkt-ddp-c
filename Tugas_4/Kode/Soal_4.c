@@ -8,7 +8,7 @@ int arr_len, i, nilai_terkecil;
 int main()
 {
   // meminta masukan dari user
-  printf("Masukan panjang array:");
+  printf("Masukan panjang array: ");
   scanf("%i", &arr_len);
 
   // membuat array dengan panjang custom

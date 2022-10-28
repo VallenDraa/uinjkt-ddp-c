@@ -1,0 +1,59 @@
+// program ini berisikan prosedur untuk mencari nilai input terkecil
+
+// deklrasi variable
+var (i, jumlah_iterasi = 1): int
+var (terkecil, arr_angka[100], input_angka): float
+var arr_len: int <-arr_angka.length
+
+// mencetak N buah bilangan genap pertama
+fn is_input_terkecil(*terkecil: int, input_angka: int): void
+
+fn main(): int do
+  while true do
+    // melakukan pengecekan kode keluar program
+    if input_angka == 9999 do
+      break
+    end if
+    
+    for i <- 0 to arr_len do
+      // Meminta masukan dari user
+      input_angka <- read("Masukkan angka ke - %i [ketik 9999 untuk mengakhiri program]: ", i + 1)
+      
+      // pengecekan nilai terkecil
+      is_input_terkecil(&terkecil, input_angka);
+
+      // melakukan pengecekan kode keluar program
+      if input_angka == 9999 do
+        break
+      end if
+      
+      // memasukkan input-an angka ke dalam array jika input bukan 9999
+      arr_angka[i] <- input_angka
+      jumlah_iterasi += 1
+    end for
+  end while
+
+  // memanggil prosedur
+  // looping arr_angka hingga nilai item bernilai NULL (belum diisi)
+  for i <- 0 to jumlah_iterasi do
+    // mengganti nilai terkecil jika angka berikutnya lebih kecil
+    if arr_angka[i] < terkecil do
+      terkecil <- arr_angka[i]
+    end if
+  end for
+  
+  write("Nilai terkecil dari seluruh input adalah: %i", terkecil)
+  return 0
+end fn
+
+// Definisi Prosedur
+fn is_input_terkecil(*terkecil: int, input_angka: int): void do
+  if *terkecil == NULL do
+    *terkecil = input_angka;
+  else do
+    if *terkecil > input_angka do
+
+      *terkecil = input_angka;
+    end if
+  end if
+end fn

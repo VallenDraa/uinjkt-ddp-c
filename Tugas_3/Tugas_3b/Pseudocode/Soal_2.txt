@@ -1,0 +1,18 @@
+/* Program ini akan menghitung rata-rata dari 5 bilangan */
+
+// DEKLARASI VARIABLE
+var angka: float[5] // Penampung masukan dari user
+var hasil: float <- 0  // Penampung rata-rata yang kemudian akan ditampilkan kepada user
+
+// DEKLARASI ALGORTIMA
+// Meminta 5 masukan berupa angka dari user 
+for i <- 0 to 5 do
+  angka[i] <- read("Masukkan angka ke-%i: ", i + 1) 
+end for
+
+// Menghitung rata-rata
+for i <- 0 to equal 5 do
+  hasil <- (i == 5) ? (hasil / 5) : (hasil + angka[i])
+end for
+
+write("Hasil rata-rata adalah: %.2f", hasil)

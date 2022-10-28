@@ -82,10 +82,11 @@ void tgl_kemarin(Date input, Date *output)
   if (input.hari - 1 == 0)
   {
     const int is_prev_year = input.bulan - 1 == 0;
+    printf("%i", is_prev_year);
 
     output->hari = HARI_BULAN[is_prev_year ? 11 : Input.bulan - 1];
     output->bulan = is_prev_year ? 12 : input.bulan - 1;
-    output->tahun = is_prev_year ? input.tahun : input.tahun - 1;
+    output->tahun = is_prev_year ? input.tahun - 1 : input.tahun;
   }
   else
   {

@@ -37,7 +37,7 @@ int main()
 // definisi prosedur
 void cut_str(char str[], int start_idx, int end_idx)
 {
-  int str_len = sizeof(str) / sizeof(str[0]);
+  int str_len = strlen(str);
 
   // validasi terhadap input index mulai dan index akhir potongan string
   if (start_idx > str_len - 1 || (end_idx > str_len - start_idx))

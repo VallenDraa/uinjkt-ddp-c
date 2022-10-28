@@ -1,6 +1,5 @@
 // Program ini akan mengkonversi nilai integer ke bentuk string integer tersebut
 #include <stdio.h>
-#include <stdlib.h>
 #include <math.h>
 
 // Deklarasi variable
@@ -22,7 +21,6 @@ int main()
   } while (input_int > 9999 || input_int < -9999);
 
   // output program
-  system("cls");
   printf("\nHasil konversi bentuk integer %i: ", input_int);
   show_bentuk_str(input_int);
   return 0;
@@ -62,7 +60,6 @@ void show_bentuk_str(int integer)
   if (satuan == 0 && puluhan == 0 && ratusan == 0 && ribuan == 0)
   {
     printf("Nol");
-    return NULL;
   }
 
   // jika input berupa angka minus

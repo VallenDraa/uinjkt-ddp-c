@@ -1,9 +1,11 @@
 // program ini akan mencari nilai input pada array
 #include <stdio.h>
 
+// DEKLARASI KONSTANTA
+const int ARR[] = {1, 2, 3, 4, 5};
+
 // deklarasi variable
 int input_int;
-int arr[] = {1, 2, 3, 4, 5};
 
 // deklarasi prosedur
 void cari_elemen(int target, int arr_src[], int arr_size);
@@ -16,7 +18,7 @@ int main()
   scanf("%i", &input_int);
 
   // memanggil prosedur
-  cari_elemen(input_int, arr, sizeof(arr) / sizeof(arr[0]));
+  cari_elemen(input_int, ARR, sizeof(ARR) / sizeof(ARR[0]));
   return 0;
 }
 

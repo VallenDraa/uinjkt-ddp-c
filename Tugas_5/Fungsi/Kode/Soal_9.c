@@ -1,5 +1,5 @@
-#include <ctype.h>
 // program untuk mengkonversi huruf kecil menjadi huruf besar
+#include <ctype.h>
 #include <stdio.h>
 
 // deklarasi konstanta
@@ -18,6 +18,8 @@ int main()
   scanf("%c", &input_char);
 
   printf("\nHuruf Uppercase dari %c adalah %c", input_char, toUpper(input_char));
+
+  return 0;
 }
 
 // definisi fungsi

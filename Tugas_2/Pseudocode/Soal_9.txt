@@ -1,0 +1,24 @@
+/* Program ini akan menentukan apakah berat badan anda termasuk ideal atau tidak */ 
+
+// DEKLARASI VARIABLE
+var b_ideal: float
+var berat: float
+var tinggi: float
+var perbedaan: float
+
+//DEKLARASI ALGORITMA
+
+// Meminta masukkan dari user 
+tinggi <- read("Masukkan tinggi anda: ")
+
+// menghitung berat badan ideal
+b_ideal <- (tinggi - 100) - ((tinggi - 100) * 0.1)
+write("Berat badan ideal untuk tinggi %.2f cm dan %.2f kg", tinggi, b_ideal);
+
+// meminta masukkan berat badan dari user
+berat <- read("Masukkan berat badan anda: ")
+
+// menentukan tipe yang akan ditampilkan
+abs(berat - b_ideal) >= 0 && abs(berat - b_ideal) <= 2
+  ? write("Berat badan anda ideal")
+  : write("Berat badan anda tidak ideal")

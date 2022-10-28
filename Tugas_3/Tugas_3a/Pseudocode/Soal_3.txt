@@ -1,0 +1,22 @@
+/* Program ini akan menghitung jumlah N buah bilangan ganjil pertama */
+
+// DEKLARASI KONSTANTA
+const var TITIK_AWAL: int <- 1
+
+// DEKLARASI VARIABLE
+var hasil: int = TITIK_AWAL;
+var jumlah_print: int;
+
+// DEKLARASI ALGORITMA
+// meminta masukan kepada user
+jumlah_print <- read("Masukkan jumlah deret bilangan ganjil: ");
+
+// jika masukkan kurang dari sama dengan 0
+if jumlah_print <= 0 do
+  write("%i", hasil);
+else do
+  for i <- 0 to jumlah_print do
+    write("%i ", hasil);
+    hasil += 2;
+  end for
+end if

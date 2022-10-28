@@ -1,0 +1,43 @@
+// program ini akan mencari nilai input pada array
+
+// DEKLARASI KONSTANTA
+const var ARR: int[] = {1, 2, 3, 4, 5}
+
+// deklarasi variable
+var input_int: int
+
+// deklarasi prosedur
+fn cari_elemen(int target, int arr_src[], int arr_size): void
+
+// deklarasi algoritma
+
+fn main(): int do
+  // meminta masukan dari user
+  input_int <- read("Masukkan angka yang ingin dicari dalam array: ")
+
+  // memanggil prosedur
+  cari_elemen(input_int, arr, sizeof(arr) / sizeof(arr[0]))
+  
+  return 0;
+end fn
+
+
+// definisi prosedur
+fn cari_elemen(int target, int arr_src[], int arr_size): void do
+  var idx_pos: int <- -1 // posisi item yang sama, dengan nilai default
+  var i: int            // index yang digunakan pada loop
+
+  // loop seisi array untuk mencari nilai yang sama
+  for i <- 0 to arr_size i++ do
+    // jika nilai sama maka perbarui posisi item
+    if arr_src[i] == target do
+      idx_pos = i
+    end if
+  end for
+
+  if (idx_pos == -1) do
+    write("Posisi %i dalam array adalah 0\n", target)
+  else do
+    write("Posisi %i dalam array adalah %i\n", target, idx_pos)
+  end if
+end fn

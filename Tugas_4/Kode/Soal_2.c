@@ -10,7 +10,7 @@ int terbesar, terkecil, range;
 int main()
 {
   // meminta input dari user
-  printf("Masukan panjang array:");
+  printf("Masukan panjang array: ");
   scanf("%i", &arr_len);
 
   // membuat array
@@ -19,7 +19,7 @@ int main()
   // memasukkan nilai pada setiap index dalam array
   for (i = 0; i < arr_len; i++)
   {
-    printf("nilai item pada index %i : ", i);
+    printf("nilai item pada index %i: ", i);
     scanf("%i", &custom_arr[i]);
   }
 
@@ -42,7 +42,6 @@ int main()
 
   // menghitung range dan menampilkan hasilnya
   range = terbesar - terkecil;
-  system("cls");
-  printf("\n range nilai di dalam larik adalah %i :", range);
+  printf("\nrange nilai di dalam array adalah %i", range);
   return 0;
 }

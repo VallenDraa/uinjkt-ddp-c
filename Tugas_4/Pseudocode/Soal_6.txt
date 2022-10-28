@@ -1,0 +1,34 @@
+// program ini akan membalikkan elemen char pada arr
+
+// deklarasi variable
+var input_str: char[50]
+
+// deklarasi prosedur
+fn balik_str(char input_str[]): void
+
+// deklarasi algoritma
+fn main(): int do
+  // meminta masukan string dari user
+  input_str <- read("Masukkan sebuah string: ")
+
+  write("String sebelum di balik adalah %s\n", input_str)
+  
+  // call revstr() function
+  balik_str(input_str)
+  write(" setelah di balik: %s", input_str)
+
+  return 0
+end fn
+
+// definisi prosedur
+fn balik_str(char input_str[]): void do
+  // deklarasi variabel
+  var (i, str_len <- input_str.length, temp): int
+
+  // proses pembalikkan elemen
+  for i <- 0 i to str_len do
+    temp <- input_str[i] // temp akan mengandung nilai ascii karakter
+    input_str[i] <- input_str[str_len - i - 1]
+    input_str[str_len - i - 1] <- temp
+  end for
+end fn

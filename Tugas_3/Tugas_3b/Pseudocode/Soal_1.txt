@@ -1,0 +1,26 @@
+/* Program ini akan mencetak 5 tingkatan awal dari sebuah segitiga paskal */
+
+// DEKLARASI KONSTANTA
+const var BARIS: int <- 5
+
+// DEKLARASI VARIABLE
+var angka: int
+
+// DEKLARASI ALGORTIMA
+  
+mencetak sumbu Y atau tinggi dari segitga sesuai banyak baris
+for i <- 0 to BARIS do 
+
+  mencetak spasi sebelum angka agar segitiga berbentuk sama kaki
+  for j <- 0 to BARIS - i do 
+    printf(" ") 
+  end for
+
+  mencetak angka di dalam segitiga pascal dan spasi agar membentuk segitiga sama kaki
+  for k <- 0 to equal i do 
+    angka <- (k == 0 || k == i) ? 1 : (angka * (i - k + 1) / k)
+    write("%i ", angka)
+  end for
+
+  write("\n")
+end for

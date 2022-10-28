@@ -1,0 +1,42 @@
+// program ini berisi prosedur untuk menentukan apakah semua isi pada array bernilai sama
+
+// deklarasi variable
+var arr_1: int[] <- [2, 2, 2, 2]
+var arr_2: int[] <- [2, 4, 2, 2]
+
+// deklarasi prosedur
+fn is_all_item_same(arr: int[], arr_len: int): void
+
+// deklarasi algoritma
+fn main(): int do
+  is_all_item_same(arr_1. arr_1.length)
+  is_all_item_same(arr_2. arr_2.length)
+  
+  return 0
+end fn
+
+// definisi prosedur
+fn is_all_item_same(arr: int[], arr_len: int): void do
+  var arr_len: int <- arr.length
+  var temp: int <- arr[0] // penanmpung sementara item pada array
+  var is_all_same: boolean <- true
+  
+  // meloop seluruh array item
+  for i <- 0 to  arr_len do
+    // jika pada iterasi ini nilainya sama maka lanjut ke iterasi berikutnya
+    if temp == arr[i] do
+      continue
+    end if
+    
+    is_all_same <- false
+    break
+  end for
+  
+  // menampilkan array
+  write("%arr", arr)
+
+  // menampilkan keluaran berdasarkan variable is_all_same
+  is_all_same
+    ? write("Semua elemen pada array sama !")
+    : write("Semua elemen pada array tidak sama !")
+end fn

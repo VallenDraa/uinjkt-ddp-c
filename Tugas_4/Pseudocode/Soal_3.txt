@@ -1,0 +1,41 @@
+// program untuk mencari nilai terbesar dan nilai terbesar kedua
+
+// deklarasi variable
+var i: int
+var (arr_len, biggest, sec_biggest): int
+
+// deklarasi algoritma
+
+// meminta masukan dari user
+arr_len <- read("Masukan panjang array:")
+
+// deklarasi array dengan panjang custom
+var custom_arr: int[arr_len]
+
+// memasukkan nilai pada setiap index dalam array
+for i <- 1 to arr_len do
+  custom_arr[i] <- read("nilai item pada index %i : ", i)
+end for
+
+// nilai default untuk nilai terbesar
+biggest <- custom_arr[0]
+// nilai default untuk nilai terbesar kedua
+sec_biggest <- custom_arr[0]
+
+// loop seisi array untuk mencari nilai terbesar
+for i <- 0 to arr_len do
+  if custom_arr[i] > biggest do
+    biggest <- custom_arr[i]
+  end if
+end for
+
+// loop seisi array untuk mencari nilai terbesar kedua
+for i <- 0 to arr_len do
+  if custom_arr[i] > sec_biggest && custom_arr[i] < biggest do
+    sec_biggest <- custom_arr[i]
+  end if
+end for
+
+// menampilkan hasil pencarian nilai terbesar dan nukau terkecil
+write("Nilai biggest ke 1 adalah %i", biggest)
+write("Nilai biggest ke 2 adalah %i", sec_biggest)

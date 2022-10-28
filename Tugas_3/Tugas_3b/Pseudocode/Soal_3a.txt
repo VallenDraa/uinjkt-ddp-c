@@ -1,0 +1,32 @@
+/* Program ini akan mencetak bentuk diamond 7 tingkat */
+
+// DEKLARASI ALGORTIMA
+/* 
+  loop akan dibagi menjadi dua bagian 1/2 banyak baris untuk bagian atas dan sebaliknya
+  jika jumlah baris adalah ganjil maka akan ditambah 1 agar segitiga seimbang
+  Dalam contoh ini 7, maka jumlah input baris akan menjadi 8
+*/
+
+// Loop ini akan mencetak bagian atas
+for i <- 0 to 4 do 
+  for j <- 0 to (4 - i) do  
+    write(" ")
+  end for
+  for k <- 0 to (i * 2 - 1) do
+    write("*")
+  end for
+  
+  write("\n")
+end for
+
+// Loop ini akan mencetak bagian bawah
+for i <- 4 down to 0 do 
+  for j <- (4 - i) down to 0 do 
+    write(" ")
+  end for 
+  for k <- (i * 2 - 1) k > 0 do 
+    write("*")
+  end for
+
+  write("\n")
+end for

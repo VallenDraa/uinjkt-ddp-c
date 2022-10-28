@@ -1,0 +1,80 @@
+// Program ini berisi prosedur yang menerima nama hari sekarang dan menentukan hari sebelumnya
+get [Date, is_kabisat] from "penghitung_beda_hari.txt"
+
+// deklarasi variable
+
+var (Input = {0, 0, 0}, Output = {0, 0, 0}): Date
+var (input_tanggal, prev_tanggal) : string
+
+// deklarasi prosedur
+fn tgl_kemarin(input: Date, *output: Date): void 
+
+// deklarasi algoritma
+fn main(): int do
+  
+  // meminta masukan hari dari user
+  while true do
+    input_tanggal <- read("Masukkan Tanggal [dd-mm-yyyy]: ")
+    
+    // parsing
+    Input.hari <- atoi(strtok(input_tanggal, "-"))
+    Input.bulan <- atoi(strtok(NULL, "-"))
+    Input.tahun <- atoi(strtok(NULL, "-"))
+    
+    // validasi bulan
+    if Input.bulan > 12 || Input.bulan <= 0 do
+      write("Illegal Bulan")
+      Input.bulan <- 0
+      continue
+    end if
+    
+    // validasi tanggal
+    if Input.hari > 0 do
+      if is_kabisat(Input.tahun) && Input.bulan == 2 do
+        if Input.hari > 29 do
+          write("Illegal Hari")
+          Input.hari <- 0
+          continue
+        end if
+      else do
+        if Input.hari > HARI_BULAN[Input.bulan - 1] do
+          write("Illegal Hari")
+          Input.hari <- 0
+          continue
+        end if
+      end if
+    else do
+      write("Illegal Hari")
+      Input.hari <- 0
+      continue
+    end if
+    
+    if Input.tahun != 0 && Input.bulan != 0 && input_tanggal != 0 do
+      break
+    end if
+  end while
+    
+  // pemanggilan prosedur
+  tgl_kemarin(Input, &Output)
+  
+  return 0
+end fn
+
+// definisi prosedur
+fn tgl_kemarin(Date input, Date *output): int do
+  if (input.hari - 1 == 0) do
+    const var is_prev_year: int <- input.bulan - 1 == 0
+    write("%i", is_prev_year)
+    
+    output->hari <- HARI_BULAN[is_prev_year ? 11 : Input.bulan - 1]
+    output->bulan <- is_prev_year ? 12 : input.bulan - 1
+    output->tahun <- is_prev_year ? input.tahun - 1 : input.tahun
+  else do
+    output->hari <- Input.hari - 1
+    output->bulan <- input.bulan
+    output->tahun <- input.tahun
+  end if
+  
+  write("Tanggal hari ini: %i-%i-%i", input.hari, input.bulan, input.tahun)
+  write("Tanggal kemarin: %i-%i-%i", output->hari, output->bulan, output->tahun)
+end fn

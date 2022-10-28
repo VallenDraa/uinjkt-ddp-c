@@ -1,0 +1,81 @@
+// program untuk menghitung jarak waktu antara dua jam berbeda
+
+// deklarasi algoritma
+structure Time {
+  jam: float 
+  menit: float 
+  detik: float 
+}
+var waktu: Time[] <- [{0, 0, 0}, {0, 0, 0}]
+var time_diff_res: Time
+var input_waktu: char[10]
+var i: int
+
+// deklarasi fungsi
+fn get_time_diff(start: Time, end: Time): Time 
+
+// deklarasi algoritma
+fn main(): int do
+  // meminta masukan dari user
+  for i <- 0 to waktu.length do
+    while true do
+      input_waktu <- read("Masukkan Jam [jj:mm:dd]: ")
+
+      // parsing
+      waktu[i].jam <- atoi(strtok(input_waktu, ":"))
+      waktu[i].menit <- atoi(strtok(NULL, ":"))
+      waktu[i].detik <- atoi(strtok(NULL, ":"))
+      
+      // validasi jam
+      if waktu[i].jam > 24 do
+        write("Illegal jam")
+        waktu[i].jam <- 0
+        continue
+      end if
+      
+      // validasi menit
+      if waktu[i].menit > 60 || waktu[i].menit <= 0 do
+        write("Illegal menit")
+        waktu[i].menit <- 0
+        continue
+      end if
+      
+      // validasi detik
+      if waktu[i].detik > 60 || waktu[i].detik <= 0 do
+        write("Illegal detik")
+        waktu[i].detik <- 0
+        continue
+      end if
+      
+      if waktu[i].detik != 0 && waktu[i].menit != 0 && waktu[i].jam != 0 do
+        break
+      end if
+
+    end while
+  end for
+  
+  // menampilkan hasil
+  time_diff_res <- get_time_diff(waktu[0], waktu[1])
+  write("Perbedaan waktu adalah %.2f jam, %.2f menit, %.2f detik",
+      time_diff_res.jam, time_diff_res.menit, time_diff_res.detik)
+end fn
+
+fn get_time_diff(start: Time, end: Time): Time do
+  
+  // mengkonversi input menjadi detik
+  var start_in_secs: int <- (start.jam * 3600) + (start.menit * 60) + start.detik
+  var end_in_secs: int <- (end.jam * 3600) + (end.menit * 60) + end.detik
+  var selisih_waktu: int <- abs(end_in_secs - start_in_secs)
+  
+  // deklarasi variable hasil akhir
+  var hasil: Time
+  
+  // menghitung perbedaan waktu
+  hasil.jam <- selisih_waktu / 3600
+  selisih_waktu <- selisih_waktu % 3600
+  hasil.menit <- selisih_waktu / 60
+  selisih_waktu <- selisih_waktu % 60
+  hasil.detik <- selisih_waktu
+  
+  return hasil
+end fn

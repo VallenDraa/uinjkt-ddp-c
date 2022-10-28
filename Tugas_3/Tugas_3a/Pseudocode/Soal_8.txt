@@ -1,0 +1,21 @@
+// Program ini akan menampilkan n bilangan pertama dari deret fibonacci 
+
+// deklarasi variable
+var a: int <- 0
+var b: int <- 1
+var hasil: int <- 0
+var jumlah_deret: int
+var i: int
+
+// deklarasi algoritma
+// meminta masukan jumlah deret kepada user
+jumlah_deret <- read("Masukkan jumlah deret yang ingin di tampilkan: ")
+
+// melakukan operasi fibonacci dan menampilkannya
+for i <- 0 to jumlah_deret do
+  write("%i ", hasil)
+  
+  hasil <- a + b
+  a <- b
+  b <- hasil
+end for

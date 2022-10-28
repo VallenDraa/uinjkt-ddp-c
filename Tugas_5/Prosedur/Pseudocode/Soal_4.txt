@@ -1,0 +1,36 @@
+// program ini berisikan prosedur untuk menghitung iuran pada bank
+
+// deklarasi variable
+var (saldo, iuran, bunga): float
+var jumlah_tahun_menabung: int
+
+// deklarasi prosedur
+fn hitung_iuran(*iuran: float, saldo: float, bunga: float, jumlah_tahun_menabung: int): void
+
+fn main(): int do
+  // Meminta masukan dari user
+  saldo <- read("Masukkan saldo anda: ")
+  bunga <- read("Masukkan besar bunga bank dalam persen: ")
+  bunga = bunga / 100
+  jumlah_tahun_menabung <- read("Masukkan lamanya anda menabung dalam tahun: ")
+  
+  // memanggil procedure
+  hitung_iuran(&iuran, saldo, bunga, jumlah_tahun_menabung)
+  return 0
+end fn
+
+// Definisi Prosedur
+fn hitung_iuran(*iuran: float, saldo: float, bunga: float, jumlah_tahun_menabung: int): void do
+  // deklarasi variabel
+  var iuran_multiplier: float <- 0
+  var i: int
+
+  // menghitung multiplier iuran
+  for i <- 0 to jumlah_tahun_menabung do
+    iuran_multiplier <- iuran_multiplier + pow((1 + bunga), i)
+  end
+  
+  // menghitung iuran
+  *iuran <- saldo * iuran_multiplier
+  write("Saldo anda Rp.%.2f yang ditabung selama %i menghasilkan iuran sebesar %.2f", saldo, jumlah_tahun_menabung, *iuran)
+end

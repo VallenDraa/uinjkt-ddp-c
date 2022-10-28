@@ -4,6 +4,13 @@
 // Array berisi hari dalam bulan yang berurutan
 const HARI_BULAN[]: int <- [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ]
 
+structure Date { 
+  hari: int 
+  bulan: int 
+  tahun: int 
+} 
+
+
 // DEKLARASI FUNGSI 
 fn cek_tahun_kabisat(tahun: int): int do
   return (tahun % 4 == 0) && ((tahun % 400 == 0) || (tahun % 100 != 0))  

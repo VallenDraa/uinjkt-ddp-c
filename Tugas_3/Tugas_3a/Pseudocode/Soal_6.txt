@@ -1,0 +1,49 @@
+/* Program ini akan mengkonversi input integer ke bentuk angka romawi */ 
+
+// DEKLARASI STRUCT
+structure Angka_Romawi {
+  num: int 
+  roman: char[2] 
+} 
+
+// DEKLARASI KONSTANTA
+const var LIST_DATA_KONVERSI[]: Angka_Romawi <- [
+  { 1000, "M" }, { 900, "CM" }, { 500, "D" }, { 400, "CD" },
+  { 100, "C" }, { 90, "XC" }, { 50, "L" }, { 40, "XL" },
+  { 10, "X" }, { 9, "IX" }, { 5, "V" }, { 4, "IV" }, { 1, "I" }
+]
+const var PANJANG_ARR: int = LIST_DATA_KONVERSI.length
+
+// DEKLARASI VARIABLE
+var angka_masukan: int // digunakan untuk menerima masukan dari user dan target utama ketika konversi
+var angka_transisi: int // digunakan untuk transisi ke berikutnya setelah angka_masukan di konversi 
+
+// DEKLARASI ALGORIMA
+// meminta user untuk menginput angka masukan dan hanya akan diterima ketika memenuhi kondisi 
+do {
+  printf("\nMasukkan angka (maks.3999): ")
+  scanf("%i", &angka_masukan)
+  angka_transisi = angka_masukan
+} while (angka_masukan <= 0 || angka_masukan > 3999)
+
+
+// Proses konversi
+while angka_transisi > 0 do
+
+  // mengiterasi seluruh item pada array list_data_konversi
+  for i <- 0 to PANJANG_ARR do
+
+    // akan terus mencetak angka romawi ketika angka masukan masih lebih besar dari data angka pada array list_data_konversi
+    while angka_masukan >= LIST_DATA_KONVERSI[i].num do
+      angka_masukan <- angka_masukan - LIST_DATA_KONVERSI[i].num
+      write("%s", LIST_DATA_KONVERSI[i].roman)
+    end while
+  end for
+  
+  write(" - %i\n", angka_transisi)
+
+  // proses transisi angka
+  angka_transisi -= 1
+  angka_masukan <- angka_transisi
+
+end while

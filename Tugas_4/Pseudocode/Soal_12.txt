@@ -1,0 +1,43 @@
+// program ini berisi fungsi yang mengembalikan sebuah
+
+// deklarasi variable
+var start_cut_idx: int
+var end_cut_idx: int
+
+// deklarasi prosedur
+fn cut_str(str: char[], start_idx: int, end_idx: int : void
+
+// deklarasi algoritma
+fn main(): int do
+  // meminta masukan string ke user
+  var arr_len: int
+  arr_len <- read("Masukkan panjang string: ")
+
+  // membuat string baru
+  var str: char[arr_len + 1]
+  
+  // meminta user untuk memasukan input string baru
+  str <- read("Masukkan sebuah string: ")
+  
+  // memasukan titik awal pemotongan string
+  start_cut_idx <- read("Masukkan index titik awal pemotongan string: ")
+  end_cut_idx <- read("Masukkan index titik akhir pemotongan string: ")
+  
+  cut_str(str, start_cut_idx, end_cut_idx)
+  return 0
+end fn
+
+// definisi prosedur
+fn cut_str(str: char[], start_idx: int, end_idx: int : void do
+  var str_len: int <- str.length
+  
+  // validasi terhadap input index mulai dan index akhir potongan string
+  if start_idx > str_len - 1 || (end_idx > str_len - start_idx) do
+    printf("%s", "")
+  else do
+    // loop untuk mencetak hasil potongan
+    for i <- start_idx to end_idx do
+      printf("%c", str[i])
+    end for
+  end if
+end fn

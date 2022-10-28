@@ -1,0 +1,47 @@
+/* Program ini akan mencetak bentuk diamond 7 tingkat */
+
+// DEKLARASI VARIABLE
+var baris: int
+
+// DEKLARASI PROCEDURE
+fn cetak_diamond(baris: int); void
+
+// DEKLARASI ALGORTIMA
+fn main(): int do
+  // meminta masukan kepada user
+  baris <- read("Masukkan jumlah baris yang ingin di print: ")
+
+  // memanggil procedure
+  cetak_diamond(baris)
+  return 0
+end fn
+
+
+// definisi prosedur
+fn cetak_diamond(baris: int): void do
+  var atas: int <- baris / 2 + 1
+  var bawah: int <- baris % 2 != 0 ? (baris / 2 + 1) : (baris / 2)
+
+  // Loop ini akan mencetak bagian atas
+  for i <- 0 to atas do
+    for j <- 0 to (4 - i) do
+      printf(" ")
+    end for
+    for k <- 0 k < (i * 2 - 1) do
+      printf("*")
+    end for
+    printf("\n")
+  end for
+  
+  // Loop ini akan mencetak bagian bawah
+  for i <- bawah down to 0 do
+    for j <- (4 - i) down to 0 do
+      printf(" ")
+    end for
+
+    for k <- (i * 2 - 1) down to 0 do 
+      printf("*")
+    end for
+    printf("\n")
+  end for 
+end fn

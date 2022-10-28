@@ -1,0 +1,92 @@
+// Program ini akan mengkonversi nilai integer ke bentuk string integer tersebut
+
+// Deklarasi variable
+var input_int: int
+var (ribuan, ratusan, puluhan, belasan, satuan): int
+var bentuk_str: string[] <- ["", "Satu", "Dua", "Tiga", "Empat", "Lima", "Enam", "Tujuh", "Delapan", "Sembilan"]
+
+// deklarasi prosedur
+fn show_bentuk_str(integer: int): void
+
+// Deklarasi algoritma
+fn main(): int do
+  // meminta input int dari user
+  do
+    input_int <- read("Masukkan angka : ")
+  while input_int > 9999 || input_int < -9999
+  
+  // output program
+  write("Hasil konversi bentuk integer %i: ", input_int)
+  show_bentuk_str(input_int)
+  return 0
+end fn
+
+fn show_bentuk_str(integer: int): void do
+
+  int is_minus, hasil
+  
+  // untuk mengecek apakah nilai parameter berupa minus
+  if integer < 0 do
+    is_minus <- 1
+    hasil <- abs(integer)
+  else do
+    is_minus <- 0
+    hasil <- integer
+  end if
+  
+  // operasi konversi
+  satuan <- hasil % 10
+  hasil <- hasil / 10
+  belasan <- satuan
+  
+  puluhan <- hasil % 10
+  hasil <- hasil / 10
+  
+  ratusan <- hasil % 10
+  hasil <- hasil / 10
+  
+  ribuan <- hasil % 10
+  hasil <- hasil / 10
+  
+  // jika seluruh hasil perhitungan adalah nol
+  if satuan == 0 && puluhan == 0 && ratusan == 0 && ribuan == 0 do
+    write("Nol")
+  end if
+  
+  // jika input berupa angka minus if (is_minus) do
+  if (is_minus) do
+    write("Minus ")
+  end if
+  
+  // validasi untuk ribuan
+  if (ribuan != 0 && ribuan != 1) do
+    write("%s Ribu ", bentuk_str[ribuan])
+  else if (ribuan == 1) do
+    write("Seribu ")
+  end if
+  
+  // validasi untuk Ratusan
+  if (ratusan != 0 && ratusan != 1) do
+    write("%s Ratus ", bentuk_str[ratusan])
+  else if (ratusan == 1) do
+    write("Seratus ")
+  end if
+  
+  // validasi untuk belasan
+  if (belasan != 0 && belasan != 1 && puluhan == 1) do
+    write("%s Belas ", bentuk_str[belasan])
+  else if (belasan == 1 && puluhan == 1) do
+    write("Sebelas ")
+  end if
+  
+  // validasi untuk puluhan
+  if (puluhan != 0 && puluhan != 1) do
+    write("%s Puluh ", bentuk_str[puluhan])
+  else if (satuan == 0 && puluhan == 1) do
+    write("Sepuluh ")
+  end if
+  
+  // validasi untuk satuan
+  if (puluhan != 1)
+  write("%s", bentuk_str[satuan])
+end fn

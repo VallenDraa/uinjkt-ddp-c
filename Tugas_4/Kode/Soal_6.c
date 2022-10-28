@@ -13,16 +13,18 @@ void balik_str(char input_str[]);
 int main()
 {
   // meminta masukan string dari user
-  printf("Masukkan sebuah string: ");
+  printf("Masukkan string: ");
   fflush(stdin);
   gets(input_str);
 
   system("cls");
-  printf("String sebelum di balik adalah %s\n", input_str);
+  printf("Input String: %s\n", input_str);
 
   // call revstr() function
-  revstr(input_str);
-  printf(" setelah di balik: %s", input_str);
+  balik_str(input_str);
+  printf("Reversed String: %s", input_str);
+
+  return 0;
 }
 
 // definisi prosedur

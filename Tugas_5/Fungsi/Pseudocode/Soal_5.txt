@@ -1,0 +1,67 @@
+// Program ini berisi fungsi yang menerima nama hari sekarang dan mengembalikan hari esoknya
+
+// deklarasi konstanta
+const var NAMA_HARI: string[] <- ["senin", "selasa", "rabu", "kamis", "jumat", "sabtu", "minggu"]
+
+// deklarasi variable
+var (i, input_hari_len, hasil <- -1): int
+var input_hari: string
+var hasil_hari: string
+
+// deklarasi prosedur
+fn hari_esok(input_hari: string): int
+
+// deklarasi algoritma
+fn main(): int do
+  while true do
+    // meminta masukan hari dari user
+    input_hari <- read("\nMasukkan nama hari (ketik e untuk keluar): ")
+    
+    // keluar dari program jika input adalah karakter e
+    if input_hari == "e" do
+      break
+    end if
+    
+    // mengkonversi input menjadi lowercase
+    input_hari_len <-  input_hari.length
+    for i <- 0 to (input_hari_len - 1) do
+      input_hari[i] = tolower(input_hari[i])
+    end for
+    
+    // pemanggilan fungsi
+    hasil <- hari_esok(input_hari)
+    
+    // jika hasil invalid
+    if hasil == -1 do
+      continue
+    // jika hasil valid
+    else do
+      printf("Hari setelah %s adalah %s", input_hari, NAMA_HARI[hasil])
+    end if
+  end while
+
+  return 0
+end fn
+
+// akan mengembalikan nilai index hari jika tidak valid maka akan mengembalikan -1
+fn hari_esok(input_hari: string): int do
+  var hasil, i: int
+  
+  // jika hari minggu maka kembalikan senin
+  if (input_hari == "minggu" do
+    hasil <- 0
+    return hasil
+  else do
+    // loop untuk mencari hari yang sama dengan input
+    for i = 0 to 6 do
+      // proses validasi hari
+      if input_hari == NAMA_HARI[i] do
+        hasil <- i + 1
+        return hasil
+      end if
+    end for
+    
+    hasil <- -1
+    return hasil
+  end if
+end fn

@@ -7,7 +7,7 @@
 const var DISKON: float = 0.2
 
 // DEKLARASI VARIABLE
-var total_belanja: float
+var total_belanja: float = 0
 var total_belanja_akhir: float
 var total_diskon: float
 

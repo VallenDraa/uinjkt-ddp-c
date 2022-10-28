@@ -1,0 +1,27 @@
+// program untuk menentukan triple pythagoras
+
+// deklarasi variable
+var (alas, tinggi, sisi_miring): float
+
+// deklarasi fungsi
+fn is_tripel_pythagoras(alas: float, tinggi: float, sisi_miring: float): boolean 
+
+// deklarasi algoritma
+fn main(): int do
+  // Meminta masukan dari user
+  alas <- read("Masukkan Alas Segitiga:");
+  tinggi <- read("Masukkan Tinggi Segitiga:");
+  sisi_miring <- read("Masukkan Sisi Miring Segitiga:");
+  
+  // memanggil fungsi dan  mencetak hasil
+  is_tripel_pythagoras(alas, tinggi, sisi_miring)
+    ? write("%.2f, %.2f, %.2f adalah tripel pythagoras", alas, tinggi, sisi_miring)
+    : write("%.2f, %.2f, %.2f bukan tripel pythagoras", alas, tinggi, sisi_miring);
+  return 0;
+end fn
+
+// definisi fungsi
+fn is_tripel_pythagoras(alas: float, tinggi: float, sisi_miring: float): boolean do
+  bool hasil = alas < tinggi && tinggi < sisi_miring && alas < sisi_miring && tinggi < sisi_miring;
+  return hasil;
+end fn

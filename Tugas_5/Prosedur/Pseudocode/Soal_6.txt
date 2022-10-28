@@ -1,0 +1,104 @@
+// Program ini berisi prosedur yang menerima jam-menit-tanggal dan akan dikurangi sebanyak n menit
+
+// deklarasi variable
+structure Waktu {
+  jam: int
+  menit: int
+  detik: int
+} 
+
+var (waktu = {0, 0, 0}, output = {0, 0, 0}): Waktu 
+var input_waktu: string
+var menit: int
+
+// deklarasi prosedur
+fn dua_digit(integer: int, separator: char): void
+fn pengurangan_waktu(menit: int, waktu: Waktu, *output: Waktu): void
+fn cetak_jam(*waktu: Waktu): void
+
+// deklarasi algoritma
+fn main(): int do
+  // meminta masukan jam dari user
+  while true do
+    input_waktu <- read("\nMasukkan Jam [jj:mm:dd]: ")
+
+    // parsing
+    waktu.jam <- atoi(strtok(input_waktu, ":"))
+    waktu.menit <- atoi(strtok(NULL, ":"))
+    waktu.detik <- atoi(strtok(NULL, ":"))
+
+    // validasi jam
+    if waktu.jam > 24 do
+      write("Illegal jam\n")
+      waktu.jam = 0
+      continue
+    end if
+
+    // validasi menit
+    if waktu.menit > 60 || waktu.menit <= 0 do
+      write("Illegal menit\n")
+      waktu.menit = 0
+      continue
+    end if
+
+    // validasi detik
+    if waktu.detik > 60 || waktu.detik <= 0 do
+      write("Illegal detik\n")
+      waktu.detik = 0
+      continue
+    end if
+
+    if waktu.detik != 0 && waktu.menit != 0 && waktu.jam != 0)
+      break
+  end while
+
+  // meminta masukan menit untuk dikurangin denggan jam dari user
+  menit <- read("\nMasukkan jumlah menit yang ingin dikurangi dengan jam: ")
+
+  // pemanggilan prosedur
+  pengurangan_waktu(menit, waktu, &output)
+
+  // menampilkan hasil pengurangan waktu
+  cetak_jam(&output)
+  return 0
+end fn
+
+
+// definisi prosedur
+fn dua_digit(integer: int, separator: char): void do
+
+  integer < 10 ? write("0%i", integer) : write("%i", integer)
+  if separator do
+    write("%c", separator)
+  end if
+end fn 
+
+fn cetak_jam(*waktu: Waktu ): void 
+{
+  write("Pukul: ")
+  dua_digit(waktu->jam, ':')
+  dua_digit(waktu->menit, ':')
+  dua_digit(waktu->detik, ' ')
+}
+
+fn pengurangan_waktu(menit: int, waktu: Waktu, *output: Waktu): void do
+  var jam: int <- menit / 60
+  var sisa_menit: int <- menit % 60
+  
+  // nilai default output
+  output->jam <- waktu.jam
+  output->menit <- waktu.menit
+  output->detik <- waktu.detik
+  
+  if jam < 1 do
+    output->jam <- waktu.jam
+    output->menit <- waktu.menit - menit
+  else do
+    if sisa_menit > 0 do
+      output->jam <- waktu.jam - jam - 1
+      output->menit <- abs(waktu.menit - sisa_menit)
+      else doend
+      output->jam <- waktu.jam - jam
+    end if
+  end if
+end

@@ -1,31 +1,31 @@
 // Program ini akan membaca uang dalama kelipatan Rp.25 dan menentukan berapa nilai tukaran pecahan
 
 // DEKLARASI KONSTANTA
-const int PECAHAN[5] <- { 1000, 500, 100, 50, 25 }; 
+const int PECAHAN[5] <- { 1000, 500, 100, 50, 25 } 
 
 // DEKLARASI VARIABLE
 var input_uang: long long
 enum Pecahan { seribu, lima_ratus, seratus, lima_puluh, dua_lima }
 var res[]: int = [ 0, 0, 0, 0, 0 ] 
-var i: int;
+var i: int
 
 // DEKLARASI ALGORITMA
 
 // meminta masukan kepada user
-input_uang <- read("Masukkan nilai uang berkelipatan 25: ");
-write("Hasil Pecahan dari Rp.%i: ", input_uang);
+input_uang <- read("Masukkan nilai uang berkelipatan 25: ")
+write("Hasil Pecahan dari Rp.%i: ", input_uang)
 
 // proses penentuan tukaran kelipatan
-for i to 5 do
+for i <- 0 to 5 do
   while input_uang >= PECAHAN[i] do
-    res[i] += 1;
-    input_uang -= PECAHAN[i];
+    res[i] += 1
+    input_uang -= PECAHAN[i]
   end while
 end for
 
 // menampilkan hasil konversi
-write("Rp.1000: %i", res[seribu]);
-write("Rp.500: %i", res[lima_ratus]);
-write("Rp.100: %i", res[seratus]);
-write("Rp.50: %i", res[lima_puluh]);
-write("Rp.25: %i", res[dua_lima]);
+write("Rp.1000: %i", res[seribu])
+write("Rp.500: %i", res[lima_ratus])
+write("Rp.100: %i", res[seratus])
+write("Rp.50: %i", res[lima_puluh])
+write("Rp.25: %i", res[dua_lima])

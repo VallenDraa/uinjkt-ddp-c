@@ -1,0 +1,25 @@
+// program ini berisikan prosedur untuk menghitung jumlah N buah bilangan genap pertama
+
+// deklrasi variable
+var (jumlah, hasil = 0): int
+
+// mencetak N buah bilangan genap pertama
+fn n_buah_genap_pertama(jumlah: int, *hasil: int): void
+
+fn main(): int do
+  // Meminta masukan dari user
+  jumlah <- read("Masukkan jumlah bilangan genap pertama: ")
+  
+  // memanggil prosedur
+  n_buah_genap_pertama(jumlah, &hasil)
+  return 0
+end fn
+
+// Definisi Prosedur
+fn n_buah_genap_pertama(jumlah: int, *hasil: int): void
+{
+  for i <- 0 to jumlah do
+    write("%i ", *hasil)
+    *hasil += 2
+  end for
+}

@@ -18,7 +18,7 @@ int main()
   for (int i = 0; i < str_len; i++)
   {
     // pengecekan character c dalam string
-    if (str[i] == 'c')
+    if (str[i] == 'c' || str[i] == 'C')
     {
       // menghapus karakter c dalam string
       memmove(&str[i], &str[i + 1], strlen(str) - i);
@@ -28,6 +28,6 @@ int main()
   }
 
   // Mencetak hasil
-  printf("Hasil string tanpa huruf C%s\n", str);
+  printf("Hasil string tanpa huruf C adalah %s\n", str);
   return 0;
 }

@@ -1,0 +1,25 @@
+/* Program ini akan membaca karakter sebanyak N karakter sesuai dengan input user dan mencetaknya ke layar */
+
+// DEKLARASI VARIABLE
+var jumlah_karakter: int 
+
+// DEKLARASI ALGORITMA
+
+// Meminta masukkan jumlah karakter dari user
+do  
+  jumlah_karakter <- read("Jumlah karakter: ")
+while jumlah_karakter <= 0
+
+// DEKLARASI STRING PENAMPUNG KARAKTER
+var input_str: char[jumlah_karakter + 1] 
+
+// Meminta masukkan karakter dari user
+for i <- 0 to jumlah_karakter do 
+  input_str[i] <- read("Masukkan Karakter ke-%i: ", i + 1)
+end for
+
+// untuk mengakhiri string
+input_str[jumlah_karakter] <- '\0'
+  
+// Mencetak string
+write("Hasil Masukan Adalah %s", input_str)

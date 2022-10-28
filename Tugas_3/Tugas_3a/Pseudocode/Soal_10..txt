@@ -1,0 +1,14 @@
+// Program ini akan menghitung jumlah n bilangan ganji pertama
+
+// deklarasi variable
+var n: int
+var i: int;
+
+// deklarasi algoritma
+// meminta masukan kepada user
+n <- read("Masukkan angka: ");
+
+// proses menghitung
+for i <- 1 to equal n do 
+  write("%i ", (2 * i) - 1);
+end for

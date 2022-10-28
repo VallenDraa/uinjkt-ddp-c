@@ -1,0 +1,19 @@
+// Program ini akan menampilkan semua sousi bilangan bulat tidak negatif dari persamaan X + Y + Z = 25
+
+// deklarasi variable
+var i: int
+var j: int
+var k: int
+
+// deklarasi algoritma
+// mengulang 3 nested for loop untuk mendapatkan semua kemungkinan penambahan
+for i <- 0 to 25 do
+  for j <- 0 to 25 do
+    for k <- 0 to 25 do
+      if i + j + k  == 25 do 
+        write("%i + %i + %i = 25\n", i, j, k)
+      end if
+    end for
+  end for
+end for
+

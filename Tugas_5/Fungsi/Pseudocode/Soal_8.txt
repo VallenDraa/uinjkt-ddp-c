@@ -1,0 +1,27 @@
+// program untuk mengkonversi huruf kecil menjadi huruf besar
+
+// deklarasi konstanta
+const var JUMLAH_PINDAH: int <- 32
+
+// deklarasi variable
+var input_char: char
+
+// deklarasi fungsi
+fn toLower(huruf: char): int // konversi manual tanpa library ctype.h
+
+// deklarasi algoritma
+fn main(): int do
+  input_char <- read("Masukan Huruf :")
+  
+  write("Huruf Lowercase dari %c adalah %c", input_char, toLower(input_char))
+  return 0
+end fn
+
+// definisi fungsi
+// akan mengembalikan nilai pada tabel ascii
+fn toLower(huruf: char): int do
+  // mendapatkan nilai pada tabel ascii
+  int hasil <- huruf >= 65 && huruf <= 90 ? huruf + JUMLAH_PINDAH : huruf
+  
+  return hasil
+end fn

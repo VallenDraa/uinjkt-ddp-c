@@ -16,15 +16,15 @@ while c <= 0
 
 // b tidak boleh lebih besar dari c
 do {
-  printf("HARUS LEBIH KECIL DARI TINGGI !")
+  write("HARUS LEBIH BESAR DARI TINGGI !")
   b <- read("Masukkan alas Segitiga: ")
-while b > c || b <= 0
+while b < c || b <= 0
 
 // a tidak boleh lebih besar dari b dan c 
 do {
-  printf("HARUS LEBIH KECIL DARI ALAS DAN TINGGI !")
+  write("HARUS LEBIH BESAR DARI ALAS DAN TINGGI !")
   a <- read("Masukkan sisi miring Segitiga: ")
-while a > b || a > c || a <= 0
+while a < b || a < c || a <= 0
 
 // menghitung penambahan antara b kuadrat dan c kuadrat 
 total_kuadrat_b_dan_c <- pow(b, 2) + pow(c, 2)
@@ -32,10 +32,10 @@ total_kuadrat_a <- pow(a, 2)
 
 // menentukan tipe segitiga
 if total_kuadrat_a == total_kuadrat_b_dan_c dp
-  printf("Tipe segitiga anda adalah Siku-Siku")
+  write("Tipe segitiga anda adalah Siku-Siku")
 else if total_kuadrat_a < total_kuadrat_b_dan_c do
-  printf("Tipe segitiga anda adalah Lancip")
+  write("Tipe segitiga anda adalah Lancip")
 else do
-  printf("Tipe segitiga anda adalah Tumpul")
+  write("Tipe segitiga anda adalah Tumpul")
 end if
 

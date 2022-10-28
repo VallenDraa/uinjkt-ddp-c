@@ -26,17 +26,11 @@ int main()
   for (i = arr_len - 1; i >= 0; i--)
   {
     // mengganti posisi item pada array
-    if (i != 0)
-    {
-      custom_arr[i] = custom_arr[i - 1];
-    }
-    else
-    {
-      custom_arr[i] = temp;
-    }
+    custom_arr[i] = i != 0 ? custom_arr[i - 1] : temp;
   }
 
   // mencetakan hasil penukaran item pada array
+  printf("Hasil pergerakan sirkuler: \n");
   for (i = 0; i < arr_len; i++)
   {
     printf("%i ", custom_arr[i]);
