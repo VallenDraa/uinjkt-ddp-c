@@ -30,6 +30,7 @@ struct data{
 	int Qty;
 	int harga;
 }pembeli[200];
+
 // Akhir Deklarasi Variabel public
 
 // Deklarasi Procedure
@@ -185,7 +186,6 @@ void inputDataPembeli(){
 			}
 		}
 	}while(!(jmljenis <= jmlbeli));
-	printf("%d", jmljenis);
 	for(i = 1; i <= jmljenis; i++){
 		switch(i){
 			case 1:{

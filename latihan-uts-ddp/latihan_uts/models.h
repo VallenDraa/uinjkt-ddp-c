@@ -2,33 +2,33 @@
 #include <stdbool.h>
 
 // deklarasi struct
-struct Motor {
+typedef struct {
   char nama[20];
   int qty;
   long long harga;
-};
+} Motor;
 
-struct Date {
-  int tanggal;
+typedef struct {
+  int hari;
   int bulan;
   int tahun;
-};
+} Date;
 
-struct Ktp {
+typedef struct {
   char NIK[16];
   char nama[120];
-  struct Date ttl;
-  char kelamin[10];
+  Date tgl_lhr;
+  char kelamin;
   char alamat[120];
   char agama[120];
-  bool isNikah;
+  char isNikah;
   char pekerjaaan[120];
   char kewarganegaraan[120];
-};
+} Ktp;
 
-struct Pembeli {
-  struct Ktp ktp;
+typedef struct {
+  Ktp ktp;
   int qty_beli;
   int jumlah_jenis_motor;
-  struct Date tgl_pembelian;
-};
+  Date tgl_pembelian;
+} Pembeli;

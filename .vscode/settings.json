@@ -6,6 +6,8 @@
     "stdio.h": "c",
     "stdbool.h": "c",
     "penghitung_beda_hari.h": "c",
-    "string.h": "c"
+    "string.h": "c",
+    "utils.h": "c",
+    "models.h": "c"
   }
 }
