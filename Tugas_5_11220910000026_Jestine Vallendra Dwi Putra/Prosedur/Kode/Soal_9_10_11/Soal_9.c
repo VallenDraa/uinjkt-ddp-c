@@ -7,7 +7,6 @@
 #include "date.h"
 
 // deklarasi variable
-
 Date Input = {0, 0, 0}, Output = {0, 0, 0};
 char input_tanggal[12], prev_tanggal[12];
 

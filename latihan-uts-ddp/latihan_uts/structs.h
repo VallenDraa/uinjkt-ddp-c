@@ -1,34 +1,34 @@
 #pragma once
+#include <stdbool.h>
 
 // deklarasi struct
-typedef struct {
+struct Motor {
   char nama[20];
   int qty;
-  int harga;
-} Motor;
+  long long harga;
+};
 
-typedef struct {
+struct Date {
   int tanggal;
   int bulan;
   int tahun;
-} Date;
+};
 
-typedef struct {
+struct Ktp {
   char NIK[16];
   char nama[120];
-  Date ttl;
+  struct Date ttl;
   char kelamin[10];
   char alamat[120];
   char agama[120];
   bool isNikah;
   char pekerjaaan[120];
   char kewarganegaraan[120];
-} Ktp;
+};
 
-typedef struct {
-  Ktp ktp;
+struct Pembeli {
+  struct Ktp ktp;
   int qty_beli;
   int jumlah_jenis_motor;
-  Date tgl_pembelian;
-} Pembeli;
-
+  struct Date tgl_pembelian;
+};

@@ -1,0 +1,6 @@
+{
+  "files.associations": {
+    "views.h": "c",
+    "stdbool.h": "c"
+  }
+}
