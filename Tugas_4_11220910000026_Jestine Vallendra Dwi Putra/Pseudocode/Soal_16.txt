@@ -1,0 +1,38 @@
+// program untuk mencari nilai modus atau nilai terbanyak dalam array
+
+// deklarasi variable
+var (i, j, b <- 0): int
+
+// Array terdefinisi
+var arr: int [] <- [1, 2, 2, 3, 2, 3, 3]
+var arr_len: int <- arr.length
+var arr_item_sum: int <- 0
+
+// deklarasi algoritma
+var hasil_modus: int <- arr[0]
+
+// proses perhitungan modus
+for i <- 0 to arr_len do
+  // PROSES perulangan sebanyak arr_len
+  for j <- 0 to arr_len do
+    if arr[i] == arr[j] do
+      arr_item_sum += 1
+    end if
+    
+    if arr_item_sum > b do
+      hasil_modus <- arr[i]
+      b <- arr_item_sum
+    // PROSES apakah banyaknya nilai yang sekarang sama dengan banyaknya nilai yang sebelumnya?
+    else if arr_item_sum == b do
+      // PROSES apakah nilai arr dengan index i lebih besar dari nilai hasil_modus
+      if (arr[i] > hasil_modus) do
+        // PROSES mendeklarasi nilai hasil
+        b <- arr_item_sum
+        hasil_modus <- arr[i]
+      end if
+    end if
+  end for
+end for
+
+// mencetak hasil moduss
+write("%i", hasil_modus)
