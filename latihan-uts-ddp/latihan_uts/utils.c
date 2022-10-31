@@ -9,17 +9,20 @@
 const int HARI_BULAN[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}; // Array berisi hari dalam bulan yang berurutan
 
 // prosedur yang akan menerima input string
-bool is_str_kosong(char *strDest) {
-  bool is_kosong = strlen(strDest) == 0;
-
-  return is_kosong;
-}
 
 bool parse_date(char *date_str, Date *date) {
-  bool is_valid = false;
+  bool is_valid = true;
   date->hari = atoi(strtok(date_str, "/"));
   date->bulan = atoi(strtok(NULL, "/"));
   date->tahun = atoi(strtok(NULL, "/"));
+
+  if (!date->tahun) {
+    is_valid = false;
+    printf("Illegal Tahun\n");
+    date->tahun = 0;
+
+    return is_valid;
+  }
 
   // validasi bulan
   if (date->bulan > 12 || date->bulan <= 0) {
@@ -67,7 +70,7 @@ void get_str(char *question, char *strDest) {
     printf("%s", question);
     fflush(stdin);
     gets(strDest);
-  } while (is_str_kosong(strDest));
+  } while (strlen(strDest) == 0);
 }
 
 void get_char(char *question, char *charDest) {

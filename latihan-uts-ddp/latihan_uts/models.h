@@ -29,6 +29,11 @@ typedef struct {
 typedef struct {
   Ktp ktp;
   int qty_beli;
-  int jumlah_jenis_motor;
+  int jenis_motor;
   Date tgl_pembelian;
 } Pembeli;
+
+// inisialisasi database
+extern Motor db_motor[8];
+extern Pembeli db_pembeli[200];
+extern int curr_pembeli_idx;
