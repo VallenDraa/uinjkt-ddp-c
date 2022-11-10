@@ -24,10 +24,6 @@ typedef struct {
   char isNikah;
   char pekerjaaan[120];
   char kewarganegaraan[120];
-} Ktp;
-
-typedef struct {
-  Ktp ktp;
   int qty_beli;
   int jenis_motor;
   Date tgl_pembelian;

@@ -66,10 +66,13 @@ bool parse_date(char *date_str, Date *date) {
 }
 
 void get_str(char *question, char *strDest) {
+  char str_input[120];
   do {
     printf("%s", question);
     fflush(stdin);
-    gets(strDest);
+    gets(str_input);
+    strcpy(strDest, str_input);
+
   } while (strlen(strDest) == 0);
 }
 

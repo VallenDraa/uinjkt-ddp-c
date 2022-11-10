@@ -36,9 +36,8 @@ void tabel_pembeli(long long profit) {
     printf("| %2d | %-12s | %-13s | %-17s | %-3s | %-12s  |\n", 1, "--", "--", "--", "--", "--");
   } else {
     for (i = 0; i < curr_pembeli_idx; i++) {
-  
       printf("| %2i | %-12s | %i/%i/%i | %-17s | %-3i | Rp. %-7llirb |\n",
-      i + 1, db_pembeli[i].ktp.nama, db_pembeli[i].tgl_pembelian.hari, 
+      i + 1, db_pembeli[i].nama, db_pembeli[i].tgl_pembelian.hari, 
       db_pembeli[i].tgl_pembelian.bulan, db_pembeli[i].tgl_pembelian.tahun, db_motor[db_pembeli[i].jenis_motor].nama, 
       db_motor[db_pembeli[i].jenis_motor].qty,  db_motor[db_pembeli[i].jenis_motor].harga);
     }
@@ -46,87 +45,73 @@ void tabel_pembeli(long long profit) {
   printf("+----+--------------+---------------+-------------------+-----+---------------+\n");
   printf("|                            Total                            | Rp. %-7d |\n", profit);
   printf("+----+--------------+---------------+-------------------+-----+---------------+\n");
-  getche();
 }
 
 void menu_tambah_pembeli(long long *modal, long long *profit) {
   system("cls");
   int i, jumlah_jenis_motor, stok_mtr;
-  Pembeli new_pembeli; //membuat objek customer baru
   char date_str[12]; // string untuk menampung tanggal lahir
-  
-  // pakai curly braces biar bisa di collapse
+
   // MENGINPUT DATA KTP
-  {
-    printf("INPUT DATA KTP !\n");
-    get_str("Masukkan nama: ", new_pembeli.ktp.nama);
-    printf("%s",  new_pembeli.ktp.nama);
-    get_str("Masukkan alamat: ", new_pembeli.ktp.alamat);
-    get_str("Masukkan agama: ", new_pembeli.ktp.agama);
-    get_str("Masukkan pekerjaaan: ", new_pembeli.ktp.pekerjaaan);
-    get_str("Masukkan kewarganegaraan: ", new_pembeli.ktp.kewarganegaraan);
-    
-    do {
-      get_str("Masukkan NIK (16 digit): ", new_pembeli.ktp.NIK);
-    } while (strlen(new_pembeli.ktp.NIK) != 16);
-    do {
-      get_str("Masukkan Tanggal Lahir (dd/mm/yyyy): ", date_str);
-    } while (!parse_date(date_str, &new_pembeli.ktp.tgl_lhr));
-    do {
-      get_char("Apakah sudah menikah (y/n): ", &new_pembeli.ktp.isNikah);
-    } while (tolower(new_pembeli.ktp.isNikah) != 'y' && tolower(new_pembeli.ktp.isNikah) != 'n');
-    do {
-      get_char("Masukkan kelamin (p/w): ", &new_pembeli.ktp.kelamin);
-    } while (tolower(new_pembeli.ktp.kelamin) != 'p' && tolower(new_pembeli.ktp.kelamin) != 'w');
-  }
+  printf("INPUT DATA KTP !\n");
+  get_str("Masukkan nama: ", db_pembeli[curr_pembeli_idx].nama);
+  get_str("Masukkan alamat: ", db_pembeli[curr_pembeli_idx].alamat);
+  get_str("Masukkan agama: ", db_pembeli[curr_pembeli_idx].agama);
+  get_str("Masukkan pekerjaaan: ", db_pembeli[curr_pembeli_idx].pekerjaaan);
+  get_str("Masukkan kewarganegaraan: ", db_pembeli[curr_pembeli_idx].kewarganegaraan);
+  
+  do {
+    get_str("Masukkan NIK (16 digit): ", db_pembeli[curr_pembeli_idx].NIK);
+  } while (strlen(db_pembeli[curr_pembeli_idx].NIK) != 16);
+  do {
+    get_str("Masukkan Tanggal Lahir (dd/mm/yyyy): ", date_str);
+  } while (!parse_date(date_str, &db_pembeli[curr_pembeli_idx].tgl_lhr));
+  do {
+    get_char("Apakah sudah menikah (y/n): ", &db_pembeli[curr_pembeli_idx].isNikah);
+  } while (tolower(db_pembeli[curr_pembeli_idx].isNikah) != 'y' && tolower(db_pembeli[curr_pembeli_idx].isNikah) != 'n');
+  do {
+    get_char("Masukkan kelamin (p/w): ", &db_pembeli[curr_pembeli_idx].kelamin);
+  } while (tolower(db_pembeli[curr_pembeli_idx].kelamin) != 'p' && tolower(db_pembeli[curr_pembeli_idx].kelamin) != 'w');
   // AKHIR MENGINPUT DATA KTP
 
 
   // MENGINPUT DATA PEMBELIAN
-  {
-    do {
-      system("cls");
-      printf("INPUT DATA PEMBELIAN !\n");
-      get_int("Jumlah jenis motor yang diinginkan (maks. 8): ", &jumlah_jenis_motor);
-    } while (jumlah_jenis_motor > 8 || jumlah_jenis_motor <= 0);
-
-    for (i = 0; i < jumlah_jenis_motor; i++) {
-      system("cls");
-      tabel_db_motor();
-
-      do {
-        printf("\nMasukan jenis motor ke-%i dari %i yang ingin dibeli: ", i + 1, jumlah_jenis_motor);
-        get_int("", &new_pembeli.jenis_motor);
-      } while (new_pembeli.jenis_motor <= 0 || new_pembeli.jenis_motor > 8);
-
-      // meminta user untuk memasukan jumlah pembelian motor
-      do {
-        stok_mtr = db_motor[new_pembeli.jenis_motor - 1].qty;
-
-        printf("Pilihan anda adalah %s\n", db_motor[new_pembeli.jenis_motor - 1].nama);
-        printf("Masukkan jumlah beli (maks.%i): ",  stok_mtr);
-        get_int("", &new_pembeli.qty_beli);
-      } while (new_pembeli.qty_beli < 0  || new_pembeli.qty_beli > stok_mtr);
-
-      // memodifikasi stok motor dalam database
-      db_motor[new_pembeli.jenis_motor - 1].qty -= new_pembeli.qty_beli;
-      *profit += db_motor[new_pembeli.jenis_motor - 1].harga * new_pembeli.qty_beli; 
-      *modal += db_motor[new_pembeli.jenis_motor - 1].harga * new_pembeli.qty_beli; 
-
-      // menambahkan data pembeli baru ke database
-      db_pembeli[curr_pembeli_idx] = new_pembeli;
-      curr_pembeli_idx++;
- 
-    }
-    
+  do {
     system("cls");
-    for (i = 0; i < curr_pembeli_idx; i++) {
-      printf("nama:%s", db_pembeli[i].ktp.nama);
-    }
-    printf("%i data baru berhasil ditambah ke dalam database !\n", jumlah_jenis_motor);
-    printf("\nTekan Apa Saja Untuk Kembali Ke Menu !");
-    getche();
+    printf("INPUT DATA PEMBELIAN !\n");
+    get_int("Jumlah jenis motor yang diinginkan (maks. 8): ", &jumlah_jenis_motor);
+  } while (jumlah_jenis_motor > 8 || jumlah_jenis_motor <= 0);
+
+  for (i = 0; i < jumlah_jenis_motor; i++) {
+    system("cls");
+    tabel_db_motor();
+
+    do {
+      printf("\nMasukan jenis motor ke-%i dari %i yang ingin dibeli: ", i + 1, jumlah_jenis_motor);
+      get_int("", &db_pembeli[curr_pembeli_idx].jenis_motor);
+    } while (db_pembeli[curr_pembeli_idx].jenis_motor <= 0 || db_pembeli[curr_pembeli_idx].jenis_motor > 8);
+
+    // meminta user untuk memasukan jumlah pembelian motor
+    do {
+      stok_mtr = db_motor[db_pembeli[curr_pembeli_idx].jenis_motor - 1].qty;
+
+      printf("Pilihan anda adalah %s\n", db_motor[db_pembeli[curr_pembeli_idx].jenis_motor - 1].nama);
+      printf("Masukkan jumlah beli (maks.%i): ",  stok_mtr);
+      get_int("", &db_pembeli[curr_pembeli_idx].qty_beli);
+    } while (db_pembeli[curr_pembeli_idx].qty_beli < 0  || db_pembeli[curr_pembeli_idx].qty_beli > stok_mtr);
+
+    // memodifikasi stok motor dalam database
+    db_motor[db_pembeli[curr_pembeli_idx].jenis_motor - 1].qty -= db_pembeli[curr_pembeli_idx].qty_beli;
+    *profit += db_motor[db_pembeli[curr_pembeli_idx].jenis_motor - 1].harga * db_pembeli[curr_pembeli_idx].qty_beli; 
+    *modal += db_motor[db_pembeli[curr_pembeli_idx].jenis_motor - 1].harga * db_pembeli[curr_pembeli_idx].qty_beli; 
+
+    curr_pembeli_idx++;
   }
+  
+  system("cls");
+  printf("%i data baru berhasil ditambah ke dalam database !\n", jumlah_jenis_motor);
+  printf("\nTekan Apa Saja Untuk Kembali Ke Menu !");
+  getche();
   // AKHIR MENGINPUT DATA PEMBELIAN
 }
 
@@ -144,8 +129,20 @@ void menu_lihat_db_motor(long long modal, long long profit) {
 }
 
 void menu_lihat_db_pembeli(long long profit) {
+  int target_idx;
+
   system("cls");
   tabel_pembeli(profit);
+
+  if (curr_pembeli_idx > 0) {
+    do {
+      get_int("Untuk melihat detail pembelian, masukkan nomor urutnya pada tabel\nInput:", &target_idx);
+    } while (target_idx < 0 || target_idx > curr_pembeli_idx);
+    
+  } else {
+    printf("\nTekan Apa Saja Untuk Kembali Ke Menu !");
+    getche();
+  }
 }
 
 // akan menerima masukan menu user
